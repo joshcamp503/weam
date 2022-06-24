@@ -62,14 +62,15 @@ const AddContact = () => {
     </Fab>
       <Dialog open={open} onClose={handleClose} fullWidth>
         <form noValidate autoComplete='off' onSubmit={formik.handleSubmit}>
-          <DialogTitle>Add new contact</DialogTitle>
-          <DialogContent>
+          <DialogTitle sx={{ m: 2 }}>Add new contact</DialogTitle>
+          <DialogContent sx={{ px: 12  }}>
             <TextField
               label="Contact name"
               id="name"
               variant="standard"
               required
               fullWidth
+              sx={{ my: 2 }}
               {...formik.getFieldProps('name')}
               error={formik.touched.name && Boolean(formik.errors.name)}
               helperText={formik.touched.name && formik.errors.name}
@@ -80,12 +81,13 @@ const AddContact = () => {
               variant="standard"
               required
               fullWidth
+              sx={{ my: 2 }}
               {...formik.getFieldProps('phone')}
               error={formik.touched.phone && Boolean(formik.errors.phone)}
               helperText={formik.touched.phone && formik.errors.phone}
             />
           </DialogContent>
-          <DialogActions>
+          <DialogActions sx={{ m: 2 }}>
             <Button onClick={handleClose}>Cancel</Button>
             <Button type='submit' >Save</Button>
           </DialogActions>
