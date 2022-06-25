@@ -10,85 +10,34 @@ import Profile from './pages/Profile/Profile';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 // HOOKS
 import { useAuthContext } from './hooks/auth/useAuthContext';
+import { useTheme } from './hooks/useTheme';
 // MUI
-import { createTheme, ThemeProvider } from '@mui/material';
-import { lightBlue, orange } from '@mui/material/colors'
-
-const theme = createTheme({
-  palette: {
-    primary: lightBlue,
-    secondary: orange,
-  },
-  typography: {
-    fontFamily: '"Permanent Marker", "cursive"',
-  },
-  components: {
-    MuiInputBase: {
-      styleOverrides: {
-        input: {
-          fontFamily: '"Roboto","Helvetica","Arial",sans-serif;'
-        }
-      }
-    },
-    MuiLink: {
-      styleOverrides: {
-        root: {
-          fontFamily: '"Permanent Marker", "cursive"',
-          textDecoration: 'none'
-        }
-      }
-    },
-    MuiMenuItem: {
-      styleOverrides: {
-        root: {
-          fontFamily: '"Roboto","Helvetica","Arial",sans-serif;'
-        }
-      }
-    },
-    MuiTableCell: {
-      styleOverrides: {
-        root: {
-          fontFamily: '"Roboto","Helvetica","Arial",sans-serif',
-          width: 'min-content'
-        },
-        body: {
-          fontSize: '12px'
-        }
-      }
-    },
-    MuiTablePagination: {
-      styleOverrides: {
-        selectLabel: {
-          fontFamily: '"Roboto","Helvetica","Arial",sans-serif'
-        },
-        displayedRows: {
-          fontFamily: '"Roboto","Helvetica","Arial",sans-serif'
-        }
-      }
-    }
-  }
-})
+import Grid from '@mui/material/Grid'
+import { ThemeProvider } from '@mui/material';
 
 function App() {
   const { user, authIsReady } = useAuthContext()
+  const { theme } = useTheme()
   
   return (
-    <div className="App">
-      {authIsReady && (
-      <ThemeProvider theme={theme}>
-        <BrowserRouter>
-          <FadeMenu />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/sub-request" element={<SubRequest />} />
-            <Route path="/signup" element={user ? <Navigate to="/" /> : <Signup />} />
-            <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
-            <Route path="/profile" element={user ? <Profile /> : <Navigate to="/" />} />
-          </Routes>
-        </BrowserRouter>
-      </ThemeProvider>
-      )}
-    </div>
+    <Grid className="App" container justifyContent='center' >
+      <Grid item xs={12} xl={10} >
+        {authIsReady && (
+        <ThemeProvider theme={theme}>
+          <BrowserRouter>
+            <FadeMenu />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/sub-request" element={<SubRequest />} />
+              <Route path="/signup" element={user ? <Navigate to="/" /> : <Signup />} />
+              <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
+              <Route path="/profile" element={user ? <Profile /> : <Navigate to="/" />} />
+            </Routes>
+          </BrowserRouter>
+        </ThemeProvider>
+        )}
+      </Grid>
+    </Grid>
   );
 }
 
