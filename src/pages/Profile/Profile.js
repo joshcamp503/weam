@@ -1,6 +1,6 @@
 // REACT
 import ContactList from '../../components/ContactList'
-import EditModal from '../../components/EditModal'
+import EditEmail from '../../components/modals/EditEmail'
 import { useAuthContext } from '../../hooks/auth/useAuthContext'
 // MUI
 import Box from "@mui/material/Box"
@@ -12,7 +12,7 @@ import BackButton from '../../components/BackButton'
 
 
 const Profile = () => {
-  const { user, userData } = useAuthContext()
+  const { userData } = useAuthContext()
 
   return (
     <Stack>
@@ -33,7 +33,7 @@ const Profile = () => {
         alignItems='center'
         justifyContent='center'
       >
-        <Grid item xs={10} sm={8} md={6} lg={4}>
+        <Grid item xs={10} sm={8} git md={6} lg={4}>
           <Paper elevation={3} sx={{ p: 3, pt: 5 }}>
             <Grid container justifyContent='center'spacing={2}>
 
@@ -44,7 +44,7 @@ const Profile = () => {
                   </Typography>
                   <Box sx={{ textAlign: 'left', m: 3, display: 'flex', alignItems: 'center', justifyContent: 'space-between'}} >
                     {userData ? userData.email : 'Email goes here'}
-                    <EditModal />
+                    <EditEmail />
                   </Box>
                 </Box>
                 <Box>

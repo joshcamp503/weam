@@ -1,6 +1,7 @@
 // REACT
 import * as React from 'react';
-import AddContact from './AddContact';
+import AddContact from './modals/AddContact';
+import ProfileActions from './ProfileActions'
 // MUI
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
@@ -12,7 +13,8 @@ import TableRow from '@mui/material/TableRow';
 
 const columns = [
   { id: 'name', label: 'Name', minWidth: 170 },
-  { id: 'phone', label: 'Phone', minWidth: 100 }
+  { id: 'phone', label: 'Phone', minWidth: 100, align: 'center', padding: 'none' },
+  { id: 'action', label: 'Action', align: 'center', padding: 'none' }
 ];
 
 const createData = (name, phone) => {
@@ -26,15 +28,11 @@ const rows = [
 
 const ContactList = () => {
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [rowsPerPage] = React.useState(10);
 
-  const handleChangePage = (event, newPage) => {
+  const handleChangePage = (newPage) => {
     setPage(newPage);
   };
-
-  const handleClick = () => {
-  
-  }
 
   return (
     <>
@@ -58,14 +56,15 @@ const ContactList = () => {
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row) => {
                 return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={row.name}>
+                  <TableRow hover role="checkbox" tabIndex={-1} key={row.name} >
                     {columns.map((column) => {
                       const value = row[column.id];
                       return (
-                        <TableCell key={column.id} align={column.align}>
+                        <TableCell key={column.id} align={column.align} padding={column.padding} sx={{ py: '8px' }} >
                           {column.format && typeof value === 'number'
                             ? column.format(value)
                             : value}
+                          {column.id === 'action' && <ProfileActions />}
                         </TableCell>
                       );
                     })}
