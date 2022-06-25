@@ -6,7 +6,6 @@ import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 // FORMS
 import { useFormik } from 'formik'
@@ -51,15 +50,15 @@ const AddContact = () => {
   return (
     <div>
       <Fab 
-      component='button' 
-      size="small" 
-      color="primary" 
-      onClick={handleClickOpen}
-      aria-label="add"
-      sx={{ mt: 3, position: 'relative', left: '50%' }} 
-    >
-      <AddIcon />
-    </Fab>
+        component='button' 
+        size="small" 
+        color="primary" 
+        onClick={handleClickOpen}
+        aria-label="add"
+        sx={{ mt: 3, position: 'relative', left: '50%' }} 
+      >
+        <AddIcon />
+      </Fab>
       <Dialog open={open} onClose={handleClose} fullWidth>
         <form noValidate autoComplete='off' onSubmit={formik.handleSubmit}>
           <DialogTitle sx={{ m: 2 }}>Add new contact</DialogTitle>

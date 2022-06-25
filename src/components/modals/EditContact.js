@@ -14,20 +14,19 @@ import * as yup from 'yup'
 ///// YUP VALIDATION SCHEMA /////
 const phoneRegExp = /^\(?[0-9]{3}\)?\s?-?\.?\s?[0-9]{3}\s?-?\.?\s?[0-9]{4}$/g
 const validationSchema = yup.object({
-  email: yup
-    .string("Enter your email")
-    .email("Enter a valid email")
-    .required("Email is required"),
+  name: yup
+    .string("Enter contact name")
+    .required("Name is required"),
   phone: yup
     .string("Enter contact's phone number")
     .matches(phoneRegExp, "Please enter a valid 10-digit phone number")
-    .required("Phone number is required")
+    .required("Phone number is required"),
 })
 
 const EditContact = () => {
   const formik = useFormik({
     initialValues: {
-      email: "",
+      name: "",
       phone: ""
     },
     onSubmit: (values) => {
@@ -62,15 +61,15 @@ const EditContact = () => {
           <DialogTitle sx={{ m: 2 }}>Edit contact</DialogTitle>
           <DialogContent sx={{ px: 12  }}>
             <TextField
-              label="Email"
-              id="email"
+              label="Name"
+              id="name"
               variant="standard"
               required
               fullWidth
               sx={{ my: 2 }}
-              {...formik.getFieldProps('email')}
-              error={formik.touched.email && Boolean(formik.errors.email)}
-              helperText={formik.touched.email && formik.errors.email}
+              {...formik.getFieldProps('name')}
+              error={formik.touched.name && Boolean(formik.errors.name)}
+              helperText={formik.touched.name && formik.errors.name}
             />
             <TextField
               label="Phone number"
