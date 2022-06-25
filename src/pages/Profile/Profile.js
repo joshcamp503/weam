@@ -1,5 +1,6 @@
 // REACT
 import ContactList from '../../components/ContactList'
+import EditModal from '../../components/EditModal'
 import { useAuthContext } from '../../hooks/auth/useAuthContext'
 // MUI
 import Box from "@mui/material/Box"
@@ -41,7 +42,10 @@ const Profile = () => {
                   <Typography textAlign='left' gutterBottom>
                     Email
                   </Typography>
-                  <Box sx={{ textAlign: 'left', m: 3 }} >{userData ? userData.email : 'Email goes here'}</Box>
+                  <Box sx={{ textAlign: 'left', m: 3, display: 'flex', alignItems: 'center', justifyContent: 'space-between'}} >
+                    {userData ? userData.email : 'Email goes here'}
+                    <EditModal />
+                  </Box>
                 </Box>
                 <Box>
                   <Typography textAlign='left' gutterBottom>
