@@ -86,7 +86,7 @@ const SubRequest = () => {
 
   return (
     <Stack>
-      
+      {/* Title */}
       <Typography 
         variant="h4" 
         color="initial" 
@@ -97,12 +97,14 @@ const SubRequest = () => {
         FIND SUBS
       </Typography>
 
+      {/* Card */}
       <Grid container alignItems='center' justifyContent='center' >
 
         <Grid item xs={10} sm={8} md={6} lg={4}>
           <Paper elevation={3} sx={{ py: 6 }}>
             <Grid container alignItems='center' justifyContent='center'>
 
+              {/* Input Fields */}
               <Grid item xs={8}>
                 <form noValidate autoComplete='off' onSubmit={formik.handleSubmit}>
                   <Stack spacing={1}>
