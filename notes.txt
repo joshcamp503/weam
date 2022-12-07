@@ -1,27 +1,20 @@
 IMPORTANT INFO AND WORKFLOW NOTES
 
-Complete:
+Bugs:
 
-  Basic GUI for signup, login, logout
-  Firebase Auth
-  Create user profile doc in firestore upon signup (test)
-  Get user profile doc from firestore after signup or login
-  Add user profile data to context
-  Feature: add first and last name to user profile
-  -add TextFields (w/ validation) to form
-  -then setDoc(userDoc, data) <---- NOT THE ACTUAL SYNTAX
-  Feature: add validation & control to sub form
-    -formik, yup
-  ***Write your own regex for phone number
-  ***Finish phone number validation that can handle ###-###-###, (###)###-####, (###) ###-####, (###) ### - ####
 
 Current: 
 
-  Feature: create subRequest doc in firestore
-  Feature: add 'players needed' field to form
-  ***'Players needed field' should be a form subsection with 2 sub field - quantity & type (male, female, over 30, etc)
-  ***Form should 
-  ***add confirmation popup and redirect
+  **Contacts are currently hard-coded for dev purposes
+  WEAM header in navbar needs additional drop down option for sub request form/home
+  Home page title needs to change when user is logged in
+  Sub request form:
+    needs to confirm and redirect after submission
+    needs to clarify "Who?" field -> phone numbers, email, contacts, what is it?
+  Contacts:
+    user needs to be able to add and save contacts to their profile utilizing Firebase
+  Profile needs to have 'Edit' functionality
+  
 
 Up next:
   
@@ -45,3 +38,21 @@ Add forgot password feature,
 Add verify account via email feature
 
 TEST TEST TEST
+
+
+Complete:
+
+  Basic GUI for signup, login, logout
+  Firebase Auth
+  Create user profile doc in firestore upon signup (test)
+  Get user profile doc from firestore after signup or login
+  Add user profile data to context
+  Feature: add first and last name to user profile
+  -add TextFields (w/ validation) to form
+  -then setDoc(userDoc, data) <---- NOT THE ACTUAL SYNTAX
+  Feature: add validation & control to sub form
+    -formik, yup
+  Write regex for phone number validation
+  Finish phone number validation that can handle ###-###-###, (###)###-####, (###) ###-####, (###) ### - ####
+  Feature: create subRequest doc in firestore
+  Feature: add 'players needed' field to form
