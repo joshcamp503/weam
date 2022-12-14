@@ -27,7 +27,7 @@ const Home = () => {
         gutterBottom
         sx={{mt: 12, mb: 4}}
       >
-        GET STARTED
+        {user ? 'HOME' : 'GET STARTED'}
       </Typography>
 
       {/* CARD */}
