@@ -6,7 +6,6 @@ Bugs:
 Current: 
 
   **Contacts are currently hard-coded for dev purposes
-  Home page title needs to change when user is logged in
   WEAM header in navbar needs additional drop down option for sub request form/home
   Sub request form:
     needs to confirm and redirect after submission
@@ -56,3 +55,4 @@ Complete:
   Finish phone number validation that can handle ###-###-###, (###)###-####, (###) ###-####, (###) ### - ####
   Feature: create subRequest doc in firestore
   Feature: add 'players needed' field to form
+  Home page title needs to change when user is logged in

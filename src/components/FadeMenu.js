@@ -29,7 +29,17 @@ export default function FadeMenu() {
     setAnchorEl(null);
   };
 
-  const handleProfile = () => {
+  const navDashboard = () => {
+    handleClose()
+    navigate('/')
+  }
+
+  const navSubRequest = () => {
+    handleClose()
+    navigate('/sub-request')
+  }
+
+  const navProfile = () => {
     handleClose()
     if (!user) return false
     navigate('/profile')
@@ -61,7 +71,9 @@ export default function FadeMenu() {
         onClose={handleClose}
         TransitionComponent={Fade}
       >
-        <MenuItem dense={true} onClick={handleProfile}>Profile</MenuItem>
+        <MenuItem dense={true} onClick={navDashboard}>Dashboard</MenuItem>
+        <MenuItem dense={true} onClick={navSubRequest}>Request a Sub</MenuItem>
+        <MenuItem dense={true} onClick={navProfile}>Profile</MenuItem>
         <MenuItem dense={true} onClick={handleLogout}>Logout</MenuItem>
       </Menu>
     </Box>
