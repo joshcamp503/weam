@@ -7,7 +7,12 @@ export const useSubRequest = () => {
 
   const createSubRequest = async (data) => {
     const docRef = doc(collection(firestore, 'subRequests'))
-    await setDoc(docRef, data)
+    try {
+      await setDoc(docRef, data)
+    }
+    catch (err) {
+      console.log(err)
+    }
   }
 
   return { createSubRequest }

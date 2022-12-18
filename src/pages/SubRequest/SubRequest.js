@@ -72,12 +72,11 @@ const SubRequest = () => {
       males: "",
       females: ""
     },
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       const formattedValues = formatData(values)
       formattedValues.creator = userData || "guest"
-      createSubRequest(formattedValues)
-      // console.log(formattedValues)
-      // console.log(userData)
+      await createSubRequest(formattedValues)
+      formik.resetForm()
     },
     validationSchema
   })

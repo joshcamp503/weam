@@ -7,8 +7,13 @@ Current:
 
   **Contacts are currently hard-coded for dev purposes
   Sub request form:
-    needs to confirm and redirect after submission
-    needs to clarify "Who?" field -> phone numbers, email, contacts, what is it?
+    send confirmation after submission
+    Clarify "Who?" field -> EMAIL
+    **'who' field:
+      needs to be email only
+      needs to have an 'add to request' feature
+      added contacts need to be displayed
+      if user is logged in, 'who' field needs appropriate behavior; type in an email or add from contacts
   Contacts:
     user needs to be able to add and save contacts to their profile utilizing Firebase
   Profile needs to have 'Edit' functionality
@@ -16,7 +21,8 @@ Current:
 
 Up next:
   
-  Feature: set up twilio, wire to sub form (who? input)
+  Feature: set up sms service, wire to sub form (who? input)
+  check out 
 
 At some point:
 
