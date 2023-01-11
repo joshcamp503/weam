@@ -75,7 +75,9 @@ const ContactList = () => {
         </Table>
       </TableContainer>
     </Paper>
+
     <AddContact />
+    
     </>
   );
 }

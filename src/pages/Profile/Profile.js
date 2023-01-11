@@ -51,7 +51,9 @@ const Profile = () => {
                   <Typography textAlign='left' gutterBottom>
                     Contacts
                   </Typography>
+
                   <ContactList />
+                  
                 </Box>
               </Grid>
 
