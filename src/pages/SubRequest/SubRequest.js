@@ -19,6 +19,7 @@ import { useFormik } from 'formik'
 import * as yup from 'yup'
 
 ///// YUP VALIDATION SCHEMA /////
+const phoneRegExp = /^\(?[0-9]{3}\)?\s?-?\.?\s?[0-9]{3}\s?-?\.?\s?[0-9]{4}$/g
 const validationSchema = yup.object({
   event: yup
     .string("Enter event description")
