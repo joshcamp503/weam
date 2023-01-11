@@ -37,7 +37,7 @@ const validationSchema = yup.object({
     .required("Location is required"),
   contacts: yup
     .string("Enter contact's phone number")
-    .matches(phoneRegExp, "Please enter a valid 10-digit phone number")
+    .email("Enter a valid email")
     .required("Phone number is required"),
   males: yup
     .number()
@@ -165,10 +165,10 @@ const SubRequest = () => {
                     />
 
                     <TextField
-                      label='Who?'
+                      label='Invite who?'
                       id='contacts'
                       variant='outlined'
-                      inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
+                      // inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
                       required
                       fullWidth
                       {...formik.getFieldProps('contacts')}
