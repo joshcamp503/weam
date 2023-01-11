@@ -6,17 +6,19 @@ Bugs:
 Current: 
 
   **Contacts are currently hard-coded for dev purposes
-  Sub request form:
-    send confirmation after submission
-    Clarify "Who?" field -> EMAIL
-    **'who' field:
-      needs to be email only
-      needs to have an 'add to request' feature
-      added contacts need to be displayed
-      if user is logged in, 'who' field needs appropriate behavior; type in an email or add from contacts
+
   Contacts:
     user needs to be able to add and save contacts to their profile utilizing Firebase
   Profile needs to have 'Edit' functionality
+
+  Sub request form:
+    send confirmation after submission
+    **'who' field:
+      needs to be email only
+      needs to pull contacts from user profile
+      needs to have an 'invite' feature (add contact to request)
+      added contacts need to be displayed 
+      needs to have 'add other contact' with email and male/female checkbox
   
 
 Up next:
