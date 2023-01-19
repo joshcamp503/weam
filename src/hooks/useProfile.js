@@ -25,22 +25,22 @@ export const useProfile = () => {
     setUser(docRef.id, { signup: true })
   }
 
+  const fetchUserDoc = async (userRef, options) => {
+    if (options && options.signup === true) {
+      const docRef = doc(firestore, `userDocs`, userRef)
+      const userDoc = await getDoc(docRef)
+      return userDoc
+    } else {
+      const q = query(collection(firestore, 'userDocs'), where('email', "==", userRef.email))
+      const querySnapshot = await getDocs(q)
+      const [ userDoc ] = querySnapshot.docs
+      return userDoc
+    }
+  }
+
   const setUser = async (userRef, options) => {
     // FIRST GET USER DOC FROM FIRESTORE
-    const fetchUserDoc = async () => {
-
-      if (options && options.signup === true) {
-        const docRef = doc(firestore, `userDocs`, userRef)
-        const userDoc = await getDoc(docRef)
-        return userDoc
-      } else {
-        const q = query(collection(firestore, 'userDocs'), where('email', "==", userRef.email))
-        const querySnapshot = await getDocs(q)
-        const [ userDoc ] = querySnapshot.docs
-        return userDoc
-      }
-    }
-    const userDoc = await fetchUserDoc()
+    const userDoc = await fetchUserDoc(userRef, options)
     // WITH USER DOC, SET CONTEXT
     if (userDoc.exists()) {
       dispatch({ type: 'SET_USER', payload: userDoc.data() })
@@ -49,12 +49,14 @@ export const useProfile = () => {
     }
   }
 
-  const addContact = async (contact) => {
-    const userRef = doc(firestore, `userDocs`, userRef)
-    await updateDoc(userRef, {
-      contacts: arrayUnion(contact)
+  const addContact = async (userId, values) => {
+    // FIRST GET USER DOC FROM FIRESTORE
+    console.log(userId, values)
+    const userDoc = doc(firestore, `userDocs`, userId)
+    await updateDoc(userDoc, {
+      contacts: arrayUnion(values)
     })
   }
 
-  return { createUserProfile, setUser }
+  return { createUserProfile, setUser, addContact }
 }

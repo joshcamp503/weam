@@ -2,6 +2,7 @@ IMPORTANT INFO AND WORKFLOW NOTES
 
 Bugs:
 
+  User stays logged in on page refresh, but "set user" context gets cleared
 
 Current: 
 
