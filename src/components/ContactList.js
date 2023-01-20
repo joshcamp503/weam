@@ -20,7 +20,7 @@ const ContactList = () => {
     setPage(newPage);
   };
 
-  // CONTACT LIST TABLES
+  // CONTACT LIST TABLE
   const columns = [
     { id: 'name', label: 'Name', minWidth: 170 },
     { id: 'email', label: 'Email', minWidth: 100, align: 'center', padding: 'none' },
@@ -38,10 +38,6 @@ const ContactList = () => {
     const { name, email } = contact
     return createData(name, email)
   })
-  // const rows = [
-  //   createData('Tito Sanchez', '(123)456-7890'),
-  //   createData('Ann Onymous', '(987)654-3210')
-  // ];
 
   return (
     <>

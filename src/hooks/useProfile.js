@@ -62,5 +62,9 @@ export const useProfile = () => {
     dispatch({ type: 'SET_USER', payload: updatedDoc.data() })
   }
 
-  return { createUserProfile, setUser, addContact }
+  const deleteContact = (userId) => {
+    console.log(userId)
+  }
+
+  return { createUserProfile, setUser, addContact, deleteContact }
 }

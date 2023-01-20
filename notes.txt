@@ -6,10 +6,11 @@ Bugs:
 
 Current: 
 
-  **Contacts are currently hard-coded for dev purposes
-
   Contacts:
-    contact list on profile needs to populate with user data
+    Currently working on functionality for deleting contacts. So far, have basic functions set up, but actual hook function needs to be fleshed out. 
+    Right now it just logs data to the console.
+    To delete, need to set up each contact list row to have a react ref that the corresponding delete button is linked to.
+    Then use this ref to indicate to firestore which object needs to be removed from the contact array of the userDoc vie updateDoc & arrayRemove()
   Profile needs to have 'Edit' functionality
 
   Sub request form:

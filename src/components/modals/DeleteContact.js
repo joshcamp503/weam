@@ -7,10 +7,19 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import Typography from '@mui/material/Typography';
+// HOOKS
+import { useProfile } from '../../hooks/useProfile'
 
 
-const EditContact = () => {
+const DeleteContact = () => {
 
+  const userData = JSON.parse(localStorage.getItem('user'))
+  const { deleteContact } = useProfile()
+  const handleDelete = () => {
+    deleteContact(userData.id)
+  }
+
+  // OPEN/CLOSE MODAL
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -42,11 +51,11 @@ const EditContact = () => {
           </DialogContent>
           <DialogActions sx={{ m: 2 }}>
             <Button onClick={handleClose}>Cancel</Button>
-            <Button onClick={handleClose}>Confirm</Button>
+            <Button onClick={handleDelete}>Confirm</Button>
           </DialogActions>
       </Dialog>
     </div>
   );
 }
 
-export default EditContact
+export default DeleteContact
