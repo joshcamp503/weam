@@ -10,7 +10,6 @@ export const authReducer = (state, action) => {
     case 'LOGIN':
       return { ...state, user: action.payload }
     case 'SET_USER':
-      console.log(action.payload)
       localStorage.setItem('user', JSON.stringify(action.payload))
       return { ...state, userData: action.payload }
     case 'LOGOUT':

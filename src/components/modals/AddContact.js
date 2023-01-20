@@ -12,7 +12,6 @@ import { useFormik } from 'formik'
 import * as yup from 'yup'
 // HOOKS
 import { useProfile } from '../../hooks/useProfile'
-import { useAuthContext } from '../../hooks/auth/useAuthContext'
 
 ///// YUP VALIDATION SCHEMA /////
 // const phoneRegExp = /^\(?[0-9]{3}\)?\s?-?\.?\s?[0-9]{3}\s?-?\.?\s?[0-9]{4}$/g
@@ -28,7 +27,7 @@ const validationSchema = yup.object({
 })
 
 const AddContact = () => {
-  const { userData } = useAuthContext()
+  const userData = JSON.parse(localStorage.getItem('user'))
   const { addContact } = useProfile()
 
   const formik = useFormik({

@@ -39,6 +39,7 @@ export const useProfile = () => {
   }
 
   const setUser = async (userRef, options) => {
+    console.log(userRef)
     // FIRST GET USER DOC FROM FIRESTORE
     const userDoc = await fetchUserDoc(userRef, options)
     // WITH USER DOC, SET CONTEXT
@@ -50,12 +51,15 @@ export const useProfile = () => {
   }
 
   const addContact = async (userId, values) => {
-    // FIRST GET USER DOC FROM FIRESTORE
-    console.log(userId, values)
+    // FIRST GET USER DOC FROM FIRESTORE & UPDATE WITH NEW CONTACT
     const userDoc = doc(firestore, `userDocs`, userId)
     await updateDoc(userDoc, {
       contacts: arrayUnion(values)
     })
+    // FETCH UPDATED DOC AND UPDATE CONTEXT
+    const docRef = doc(firestore, `userDocs`, userId)
+    const updatedDoc = await getDoc(docRef)
+    dispatch({ type: 'SET_USER', payload: updatedDoc.data() })
   }
 
   return { createUserProfile, setUser, addContact }
