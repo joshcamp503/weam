@@ -20,21 +20,28 @@ const ContactList = () => {
     setPage(newPage);
   };
 
-  // CONTACT LIST TABLEDS
+  // CONTACT LIST TABLES
   const columns = [
     { id: 'name', label: 'Name', minWidth: 170 },
     { id: 'email', label: 'Email', minWidth: 100, align: 'center', padding: 'none' },
     { id: 'action', label: 'Action', align: 'center', padding: 'none' }
   ];
-  
+
   const createData = (name, email) => {
     return { name, email };
   }
   
-  const rows = [
-    createData('Tito Sanchez', '(123)456-7890'),
-    createData('Ann Onymous', '(987)654-3210')
-  ];
+  // GET USER DATA FROM LOCAL STORAGE AND POPULATE TABLE
+  const { contacts } = JSON.parse(localStorage.getItem('user'))
+  console.log(contacts)
+  const rows = contacts.map(contact => {
+    const { name, email } = contact
+    return createData(name, email)
+  })
+  // const rows = [
+  //   createData('Tito Sanchez', '(123)456-7890'),
+  //   createData('Ann Onymous', '(987)654-3210')
+  // ];
 
   return (
     <>
