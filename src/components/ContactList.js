@@ -11,28 +11,30 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 
-const columns = [
-  { id: 'name', label: 'Name', minWidth: 170 },
-  { id: 'phone', label: 'Phone', minWidth: 100, align: 'center', padding: 'none' },
-  { id: 'action', label: 'Action', align: 'center', padding: 'none' }
-];
-
-const createData = (name, phone) => {
-  return { name, phone };
-}
-
-const rows = [
-  createData('Tito Sanchez', '(123)456-7890'),
-  createData('Ann Onymous', '(987)654-3210')
-];
-
 const ContactList = () => {
+  // PAGINATION
   const [page, setPage] = React.useState(0);
   const [rowsPerPage] = React.useState(10);
 
   const handleChangePage = (newPage) => {
     setPage(newPage);
   };
+
+  // CONTACT LIST TABLEDS
+  const columns = [
+    { id: 'name', label: 'Name', minWidth: 170 },
+    { id: 'email', label: 'Email', minWidth: 100, align: 'center', padding: 'none' },
+    { id: 'action', label: 'Action', align: 'center', padding: 'none' }
+  ];
+  
+  const createData = (name, email) => {
+    return { name, email };
+  }
+  
+  const rows = [
+    createData('Tito Sanchez', '(123)456-7890'),
+    createData('Ann Onymous', '(987)654-3210')
+  ];
 
   return (
     <>

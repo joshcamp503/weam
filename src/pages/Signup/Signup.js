@@ -48,6 +48,7 @@ const Signup = () => {
       passwordConfirmation: ""
     },
     onSubmit: (values) => {
+      values.contacts = []
       signup(values)
     },
     validationSchema
