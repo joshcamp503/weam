@@ -1,7 +1,6 @@
 // REACT
 import ContactList from '../../components/ContactList'
 import EditEmail from '../../components/modals/EditEmail'
-import { useAuthContext } from '../../hooks/auth/useAuthContext'
 // MUI
 import Box from "@mui/material/Box"
 import Grid from "@mui/material/Grid"
@@ -12,7 +11,7 @@ import BackButton from '../../components/BackButton'
 
 
 const Profile = () => {
-  const { userData } = useAuthContext()
+  const userData = JSON.parse(localStorage.getItem('user'))
 
   return (
     <Stack>

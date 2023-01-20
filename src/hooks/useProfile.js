@@ -56,7 +56,7 @@ export const useProfile = () => {
     await updateDoc(userDoc, {
       contacts: arrayUnion(values)
     })
-    // FETCH UPDATED DOC AND UPDATE CONTEXT
+    // FETCH UPDATED DOC AND UPDATE CONTEXT & LOCALSTORAGE
     const docRef = doc(firestore, `userDocs`, userId)
     const updatedDoc = await getDoc(docRef)
     dispatch({ type: 'SET_USER', payload: updatedDoc.data() })

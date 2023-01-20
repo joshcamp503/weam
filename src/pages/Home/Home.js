@@ -14,7 +14,7 @@ const btn = [{
 }]
 
 const Home = () => {
-  const { user, userData } = useAuthContext()
+  const { user } = useAuthContext()
   const { logout } = useLogout()
 
   return (

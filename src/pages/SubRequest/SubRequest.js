@@ -1,7 +1,6 @@
 // REACT
 import { useHelpers } from '../../hooks/useHelpers'
 import { useSubRequest } from '../../hooks/useSubRequest'
-import { useAuthContext } from '../../hooks/auth/useAuthContext'
 import BackButton from '../../components/BackButton'
 // MUI
 import Box from '@mui/material/Box'
@@ -19,7 +18,7 @@ import { useFormik } from 'formik'
 import * as yup from 'yup'
 
 ///// YUP VALIDATION SCHEMA /////
-const phoneRegExp = /^\(?[0-9]{3}\)?\s?-?\.?\s?[0-9]{3}\s?-?\.?\s?[0-9]{4}$/g
+// const phoneRegExp = /^\(?[0-9]{3}\)?\s?-?\.?\s?[0-9]{3}\s?-?\.?\s?[0-9]{4}$/g
 const validationSchema = yup.object({
   event: yup
     .string("Enter event description")
@@ -57,7 +56,7 @@ const validationSchema = yup.object({
 ///// END VALIDATION SCHEMA /////
 
 const SubRequest = () => {
-  const { userData } = useAuthContext()
+  const userData = JSON.parse(localStorage.getItem('user'))
   const { formatData } = useHelpers()
   const { createSubRequest } = useSubRequest()
 
