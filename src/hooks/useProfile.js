@@ -77,5 +77,14 @@ export const useProfile = () => {
     setUser(userId)
   }
 
-  return { createUserProfile, initUser, addContact, deleteContact, editContact }
+  const editUserData = async (userId, value) => {
+    const userDoc = doc(firestore, `userDocs`, userId)
+    console.log(value)
+    await updateDoc(userDoc, {
+      email: value.email
+    })
+    setUser(userId)
+  }
+
+  return { createUserProfile, initUser, addContact, deleteContact, editContact, editUserData }
 }

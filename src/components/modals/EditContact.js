@@ -24,7 +24,7 @@ const validationSchema = yup.object({
     .required("Phone number is required"),
 })
 
-const EditContact = ({ contact }) => {  // DELETE CONTACT
+const EditContact = ({ contact }) => { 
   const userData = JSON.parse(localStorage.getItem('user'))
   const { editContact } = useProfile()
 

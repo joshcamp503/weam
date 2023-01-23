@@ -5,14 +5,15 @@ const phoneRegExp = /^\(?[0-9]{3}\)?\s?-?\.?\s?[0-9]{3}\s?-?\.?\s?[0-9]{4}$/g
 
 Bugs:
 
-  User stays logged in on page refresh, but "set user" context gets cleared
 
 Current: 
 
+  Profile:
+    Make it so changing email on profile changes auth email too
+    Display user FirstName and LastName on Profile and make editable
+
   Contacts:
     Change pagination to react-window evnetually
-  
-  Profile: needs to have 'Edit' functionality
 
   Sub request form:
     send confirmation after submission

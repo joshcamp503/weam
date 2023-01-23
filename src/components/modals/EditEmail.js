@@ -7,6 +7,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
+import { useProfile } from '../../hooks/useProfile';
 // FORMS
 import { useFormik } from 'formik'
 import * as yup from 'yup'
@@ -20,13 +21,16 @@ const validationSchema = yup.object({
 })
 
 const EditEmail = () => {
+  const { id } = JSON.parse(localStorage.getItem('user'))
+  const { editUserData } = useProfile()
+
   const formik = useFormik({
     initialValues: {
       email: ""
     },
     onSubmit: (values) => {
+      editUserData(id, values)
       setOpen(false)
-      console.log(values)
     }, 
     validationSchema
   })
