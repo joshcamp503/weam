@@ -10,28 +10,32 @@ import DialogTitle from '@mui/material/DialogTitle';
 // FORMS
 import { useFormik } from 'formik'
 import * as yup from 'yup'
+// HOOKS
+import { useProfile } from '../../hooks/useProfile'
 
 ///// YUP VALIDATION SCHEMA /////
-const phoneRegExp = /^\(?[0-9]{3}\)?\s?-?\.?\s?[0-9]{3}\s?-?\.?\s?[0-9]{4}$/g
 const validationSchema = yup.object({
   name: yup
     .string("Enter contact name")
     .required("Name is required"),
-  phone: yup
+  email: yup
     .string("Enter contact's phone number")
-    .matches(phoneRegExp, "Please enter a valid 10-digit phone number")
+    .email("Enter a valid email")
     .required("Phone number is required"),
 })
 
-const EditContact = () => {
+const EditContact = ({ contact }) => {  // DELETE CONTACT
+  const userData = JSON.parse(localStorage.getItem('user'))
+  const { editContact } = useProfile()
+
   const formik = useFormik({
     initialValues: {
       name: "",
-      phone: ""
+      email: ""
     },
     onSubmit: (values) => {
+      editContact(userData.id, contact, values)
       setOpen(false)
-      console.log(values)
     }, 
     validationSchema
   })
@@ -40,7 +44,7 @@ const EditContact = () => {
 
   const handleClickOpen = () => {
     formik.resetForm()
-    setOpen(true);
+    setOpen(true)
   };
 
   const handleClose = () => {
@@ -72,15 +76,15 @@ const EditContact = () => {
               helperText={formik.touched.name && formik.errors.name}
             />
             <TextField
-              label="Phone number"
-              id="phone"
+              label="Email"
+              id="email"
               variant="standard"
               required
               fullWidth
               sx={{ my: 2 }}
-              {...formik.getFieldProps('phone')}
-              error={formik.touched.phone && Boolean(formik.errors.phone)}
-              helperText={formik.touched.phone && formik.errors.phone}
+              {...formik.getFieldProps('email')}
+              error={formik.touched.email && Boolean(formik.errors.email)}
+              helperText={formik.touched.email && formik.errors.email}
             />
           </DialogContent>
           <DialogActions sx={{ m: 2 }}>

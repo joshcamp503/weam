@@ -1,5 +1,8 @@
 IMPORTANT INFO AND WORKFLOW NOTES
 
+**PhoneRegExp
+const phoneRegExp = /^\(?[0-9]{3}\)?\s?-?\.?\s?[0-9]{3}\s?-?\.?\s?[0-9]{4}$/g
+
 Bugs:
 
   User stays logged in on page refresh, but "set user" context gets cleared

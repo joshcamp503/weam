@@ -66,6 +66,16 @@ export const useProfile = () => {
     setUser(userId)
   }
 
+  const editContact = async (userId, contact, newValue) => {
+    const userDoc = doc(firestore, `userDocs`, userId)
+    await updateDoc(userDoc, {
+      contacts: arrayRemove(contact)
+    })
+    await updateDoc(userDoc, {
+      contacts: arrayUnion(newValue)
+    })
+    setUser(userId)
+  }
 
-  return { createUserProfile, initUser, addContact, deleteContact }
+  return { createUserProfile, initUser, addContact, deleteContact, editContact }
 }
