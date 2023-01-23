@@ -33,8 +33,9 @@ const ContactList = () => {
     { id: 'action', label: 'Action', align: 'center', padding: 'none' }
   ];
   
-  // GET USER DATA FROM LOCAL STORAGE AND POPULATE TABLE
+  // GET USER DATA FROM LOCAL STORAGE AND POPULATE TABLE, SORTED ALPHABETICALLY BY NAME
   const { contacts } = JSON.parse(localStorage.getItem('user'))
+  contacts.sort((a, b) => a.name.localeCompare(b.name))
 
   return (
     <>
