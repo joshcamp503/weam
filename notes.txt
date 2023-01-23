@@ -11,6 +11,8 @@ Current:
     Right now it just logs data to the console.
     To delete, need to set up each contact list row to have a react ref that the corresponding delete button is linked to.
     Then use this ref to indicate to firestore which object needs to be removed from the contact array of the userDoc vie updateDoc & arrayRemove()
+
+    For more than 10 contacts, pagination is supposed to kick in, but currently no frontend option to change pages/go to next page
   Profile needs to have 'Edit' functionality
 
   Sub request form:

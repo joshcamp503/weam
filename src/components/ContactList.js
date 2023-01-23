@@ -26,18 +26,9 @@ const ContactList = () => {
     { id: 'email', label: 'Email', minWidth: 100, align: 'center', padding: 'none' },
     { id: 'action', label: 'Action', align: 'center', padding: 'none' }
   ];
-
-  const createData = (name, email) => {
-    return { name, email };
-  }
   
   // GET USER DATA FROM LOCAL STORAGE AND POPULATE TABLE
   const { contacts } = JSON.parse(localStorage.getItem('user'))
-  console.log(contacts)
-  const rows = contacts.map(contact => {
-    const { name, email } = contact
-    return createData(name, email)
-  })
 
   return (
     <>
@@ -57,19 +48,19 @@ const ContactList = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows
+            {contacts
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row) => {
+              .map((contact) => {
                 return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={row.name} >
+                  <TableRow hover role="checkbox" tabIndex={-1} key={contact.name} >
                     {columns.map((column) => {
-                      const value = row[column.id];
+                      const value = contact[column.id];
                       return (
                         <TableCell key={column.id} align={column.align} padding={column.padding} sx={{ py: '8px' }} >
                           {column.format && typeof value === 'number'
                             ? column.format(value)
                             : value}
-                          {column.id === 'action' && <ProfileActions />}
+                          {column.id === 'action' && <ProfileActions contact={contact}/>}
                         </TableCell>
                       );
                     })}

@@ -5,15 +5,9 @@ import { useAuthContext } from './auth/useAuthContext'
 // FIREBASE
 import { firestore } from '../firebase/config'
 import { 
-  collection, 
-  query, 
-  where, 
-  doc, 
-  setDoc, 
-  getDoc, 
-  getDocs, 
-  updateDoc,
-  arrayUnion
+  getDocs, collection, query, where, 
+  doc, setDoc, getDoc, updateDoc,
+  arrayUnion, arrayRemove
 } from 'firebase/firestore'
 
 export const useProfile = () => {
@@ -62,8 +56,17 @@ export const useProfile = () => {
     dispatch({ type: 'SET_USER', payload: updatedDoc.data() })
   }
 
-  const deleteContact = (userId) => {
-    console.log(userId)
+  const deleteContact = async (userId, contact) => {
+    console.log(contact)
+    // FIRST GET USER DOC FROM FIRESTORE & UPDATE WITH NEW CONTACT
+    const userDoc = doc(firestore, `userDocs`, userId)
+    await updateDoc(userDoc, {
+      contacts: arrayRemove(contact)
+    })
+    // FETCH UPDATED DOC AND UPDATE CONTEXT & LOCALSTORAGE
+    const docRef = doc(firestore, `userDocs`, userId)
+    const updatedDoc = await getDoc(docRef)
+    dispatch({ type: 'SET_USER', payload: updatedDoc.data() })
   }
 
   return { createUserProfile, setUser, addContact, deleteContact }

@@ -11,13 +11,7 @@ import Typography from '@mui/material/Typography';
 import { useProfile } from '../../hooks/useProfile'
 
 
-const DeleteContact = () => {
-
-  const userData = JSON.parse(localStorage.getItem('user'))
-  const { deleteContact } = useProfile()
-  const handleDelete = () => {
-    deleteContact(userData.id)
-  }
+const DeleteContact = ({ contact }) => {
 
   // OPEN/CLOSE MODAL
   const [open, setOpen] = React.useState(false);
@@ -29,6 +23,14 @@ const DeleteContact = () => {
   const handleClose = () => {
     setOpen(false);
   };
+
+  // DELETE CONTACT
+  const userData = JSON.parse(localStorage.getItem('user'))
+  const { deleteContact } = useProfile()
+  const handleDelete = () => {
+    deleteContact(userData.id, contact)
+    setOpen(false)
+  }
 
   return (
     <div>
