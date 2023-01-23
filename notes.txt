@@ -7,9 +7,9 @@ Bugs:
 Current: 
 
   Contacts:
-
-    For more than 10 contacts, pagination is supposed to kick in, but currently no frontend option to change pages/go to next page
-  Profile needs to have 'Edit' functionality
+    Change pagination to react-window evnetually
+  
+  Profile: needs to have 'Edit' functionality
 
   Sub request form:
     send confirmation after submission

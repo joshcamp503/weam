@@ -11,7 +11,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth'
 export const useLogin = () => {
   const [error, setError] = useState(null)
   const { dispatch } = useAuthContext()
-  const { setUser } = useProfile()
+  const { initUser } = useProfile()
   const { removePassword } = useHelpers()
 
   const login = async (values) => {
@@ -22,7 +22,7 @@ export const useLogin = () => {
       const res = await signInWithEmailAndPassword(auth, email, password)
       dispatch({ type: 'ERROR', payload: null })
       dispatch({ type: 'LOGIN', payload: res.user })
-      setUser(profileData)
+      initUser(profileData)
     } catch (err) {
       setError(err)
       console.log(err)

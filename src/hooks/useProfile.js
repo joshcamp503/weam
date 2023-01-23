@@ -16,7 +16,7 @@ export const useProfile = () => {
   const createUserProfile = async (data) => {
     const docRef = doc(collection(firestore, 'userDocs'))
     setDoc(docRef, {...data, id: docRef.id})
-    setUser(docRef.id, { signup: true })
+    initUser(docRef.id, { signup: true })
   }
 
   const fetchUserDoc = async (userRef, options) => {
@@ -32,8 +32,7 @@ export const useProfile = () => {
     }
   }
 
-  const setUser = async (userRef, options) => {
-    console.log(userRef)
+  const initUser = async (userRef, options) => {
     // FIRST GET USER DOC FROM FIRESTORE
     const userDoc = await fetchUserDoc(userRef, options)
     // WITH USER DOC, SET CONTEXT
@@ -44,30 +43,29 @@ export const useProfile = () => {
     }
   }
 
+  const setUser = async (userId) => {
+    // FETCH USER DOC AND UPDATE CONTEXT & LOCALSTORAGE
+    const docRef = doc(firestore, `userDocs`, userId)
+    const updatedDoc = await getDoc(docRef)
+    dispatch({ type: 'SET_USER', payload: updatedDoc.data() })
+  }
+
   const addContact = async (userId, values) => {
-    // FIRST GET USER DOC FROM FIRESTORE & UPDATE WITH NEW CONTACT
     const userDoc = doc(firestore, `userDocs`, userId)
     await updateDoc(userDoc, {
       contacts: arrayUnion(values)
     })
-    // FETCH UPDATED DOC AND UPDATE CONTEXT & LOCALSTORAGE
-    const docRef = doc(firestore, `userDocs`, userId)
-    const updatedDoc = await getDoc(docRef)
-    dispatch({ type: 'SET_USER', payload: updatedDoc.data() })
+    setUser(userId)
   }
 
   const deleteContact = async (userId, contact) => {
-    console.log(contact)
-    // FIRST GET USER DOC FROM FIRESTORE & UPDATE WITH NEW CONTACT
     const userDoc = doc(firestore, `userDocs`, userId)
     await updateDoc(userDoc, {
       contacts: arrayRemove(contact)
     })
-    // FETCH UPDATED DOC AND UPDATE CONTEXT & LOCALSTORAGE
-    const docRef = doc(firestore, `userDocs`, userId)
-    const updatedDoc = await getDoc(docRef)
-    dispatch({ type: 'SET_USER', payload: updatedDoc.data() })
+    setUser(userId)
   }
 
-  return { createUserProfile, setUser, addContact, deleteContact }
+
+  return { createUserProfile, initUser, addContact, deleteContact }
 }

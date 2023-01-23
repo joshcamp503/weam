@@ -46,9 +46,9 @@ const Home = () => {
               <Grid item xs={12}>
                 {!user && <Button component={NavLink} to="/signup" sx={btn} variant="contained" size="large">Sign Up</Button>}
               </Grid>
-              <Grid item xs={12}>
+              {/* <Grid item xs={12}>
                 {user && <Button component={NavLink} to="/" sx={btn} variant="contained" size="large">Add Contacts</Button>}
-              </Grid>
+              </Grid> */}
               <Grid item xs={12}>
                 {user && <Button component={NavLink} to="/profile" sx={btn} variant="contained" size="large">View Profile</Button>}
               </Grid>
