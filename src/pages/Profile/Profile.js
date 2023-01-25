@@ -39,20 +39,24 @@ const Profile = () => {
               <Grid item xs={11}>
                 <Box>
                   <Typography textAlign='left' gutterBottom>
+                    Name
+                  </Typography>
+                  <Box sx={{ textAlign: 'left', m: 3, display: 'flex', alignItems: 'center', justifyContent: 'space-between'}} >
+                    {userData ? `${userData.firstName} ${userData.lastName}` : 'Name goes here'}
+                    <EditEmail />
+                  </Box>
+                  <Typography textAlign='left' gutterBottom>
                     Email
                   </Typography>
                   <Box sx={{ textAlign: 'left', m: 3, display: 'flex', alignItems: 'center', justifyContent: 'space-between'}} >
                     {userData ? userData.email : 'Email goes here'}
                     <EditEmail />
                   </Box>
-                </Box>
-                <Box>
                   <Typography textAlign='left' gutterBottom>
                     Contacts
                   </Typography>
 
-                  <ContactList />
-                  
+                  <ContactList />                  
                 </Box>
               </Grid>
 
