@@ -79,10 +79,18 @@ export const useProfile = () => {
 
   const editUserData = async (userId, value) => {
     const userDoc = doc(firestore, `userDocs`, userId)
-    console.log(value)
-    await updateDoc(userDoc, {
-      email: value.email
-    })
+    if (value.email) { 
+      await updateDoc(userDoc, {
+        email: value.email
+      }) 
+    } else if (value.firstName && value.lastName) {
+      await updateDoc(userDoc, {
+        firstName: value.firstName,
+        lastName: value.lastName
+      }) 
+    } else {
+      console.log('error')
+    }
     setUser(userId)
   }
 

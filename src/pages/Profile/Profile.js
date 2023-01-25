@@ -8,6 +8,7 @@ import Paper from "@mui/material/Paper"
 import Stack from "@mui/material/Stack"
 import Typography from "@mui/material/Typography"
 import BackButton from '../../components/BackButton'
+import EditName from '../../components/modals/EditName'
 
 
 const Profile = () => {
@@ -43,7 +44,7 @@ const Profile = () => {
                   </Typography>
                   <Box sx={{ textAlign: 'left', m: 3, display: 'flex', alignItems: 'center', justifyContent: 'space-between'}} >
                     {userData ? `${userData.firstName} ${userData.lastName}` : 'Name goes here'}
-                    <EditEmail />
+                    <EditName />
                   </Box>
                   <Typography textAlign='left' gutterBottom>
                     Email
