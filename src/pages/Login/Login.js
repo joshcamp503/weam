@@ -1,5 +1,4 @@
 // REACT
-import { NavLink } from 'react-router-dom'
 import BackButton from '../../components/BackButton'
 import AuthErrorMessage from '../../components/AuthErrorMessage'
 // MUI
@@ -15,6 +14,7 @@ import { useLogin } from '../../hooks/auth/useLogin'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
 import NotRegistered from '../../components/NotRegistered'
+import ForgotPassword from '../../components/ForgotPassword'
 
 const validationSchema = yup.object({
   email: yup
@@ -100,8 +100,11 @@ const Login = () => {
                 </form>
               </Grid>
 
-              <Grid item xs={7}>
-                <NotRegistered />
+              <Grid item xs={8}>
+                <Grid container justifyContent="space-between">
+                  <NotRegistered />
+                  <ForgotPassword />
+                </Grid>
               </Grid>
 
             </Grid>

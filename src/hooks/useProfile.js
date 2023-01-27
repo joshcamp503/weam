@@ -86,8 +86,6 @@ export const useProfile = () => {
         updateDoc(userDoc, {
             email: value.email
           }).then(() => {
-            console.log(auth.currentUser)
-            console.log(userDoc)
             setUser(userId)
           })        
       } else if (value.firstName && value.lastName) {

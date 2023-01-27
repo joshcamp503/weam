@@ -8,8 +8,10 @@ Bugs:
 
 Current: 
 
-  Profile:
-    Make it so changing email on profile changes auth email too
+  AUTH stuff:
+    ForgotPassword needs "Email sent" modal after successful submit
+    Login needs email verification
+
 
   Contacts:
     Change pagination to react-window evnetually
