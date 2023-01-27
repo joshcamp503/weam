@@ -1,9 +1,7 @@
-// REACT
-// AUTH
+// AUTH & FIREBASE
 import { useAuthContext } from './auth/useAuthContext'
-
-// FIREBASE
-import { firestore } from '../firebase/config'
+import { auth, firestore } from '../firebase/config'
+import { updateEmail } from 'firebase/auth'
 import { 
   getDocs, collection, query, where, 
   doc, setDoc, getDoc, updateDoc,
@@ -60,6 +58,7 @@ export const useProfile = () => {
 
   const deleteContact = async (userId, contact) => {
     const userDoc = doc(firestore, `userDocs`, userId)
+
     await updateDoc(userDoc, {
       contacts: arrayRemove(contact)
     })
@@ -79,19 +78,27 @@ export const useProfile = () => {
 
   const editUserData = async (userId, value) => {
     const userDoc = doc(firestore, `userDocs`, userId)
-    if (value.email) { 
-      await updateDoc(userDoc, {
-        email: value.email
-      }) 
-    } else if (value.firstName && value.lastName) {
-      await updateDoc(userDoc, {
-        firstName: value.firstName,
-        lastName: value.lastName
-      }) 
-    } else {
-      console.log('error')
+    try {
+      if (value.email) { 
+        updateEmail(auth.currentUser, value.email).then(() => {
+          console.log(auth.currentUser)
+        })
+        updateDoc(userDoc, {
+            email: value.email
+          }).then(() => {
+            console.log(auth.currentUser)
+            console.log(userDoc)
+            setUser(userId)
+          })        
+      } else if (value.firstName && value.lastName) {
+        updateDoc(userDoc, {
+          firstName: value.firstName,
+          lastName: value.lastName
+        }).then(() => {setUser(userId)}) 
+      }
+    } catch (error) {
+      console.log(error)
     }
-    setUser(userId)
   }
 
   return { createUserProfile, initUser, addContact, deleteContact, editContact, editUserData }

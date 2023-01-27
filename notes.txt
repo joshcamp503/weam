@@ -10,7 +10,6 @@ Current:
 
   Profile:
     Make it so changing email on profile changes auth email too
-    Display user FirstName and LastName on Profile and make editable
 
   Contacts:
     Change pagination to react-window evnetually

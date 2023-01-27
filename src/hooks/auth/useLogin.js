@@ -20,6 +20,7 @@ export const useLogin = () => {
     const profileData = removePassword(values)
     try {
       const res = await signInWithEmailAndPassword(auth, email, password)
+      console.log(res)
       dispatch({ type: 'ERROR', payload: null })
       dispatch({ type: 'LOGIN', payload: res.user })
       initUser(profileData)
