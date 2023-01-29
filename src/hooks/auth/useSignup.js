@@ -6,7 +6,7 @@ import { useAuthContext } from './useAuthContext'
 import { useProfile } from '../useProfile'
 // FIREBASE IMPORTS
 import { auth } from '../../firebase/config'
-import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth'
 
 export const useSignup = () => {
   const [error, setError] = useState(null)
@@ -20,6 +20,7 @@ export const useSignup = () => {
     const profileData = removePassword(values)
     try {
       const res = await createUserWithEmailAndPassword(auth, email, password)
+      await sendEmailVerification(auth.currentUser)
       dispatch({ type: 'ERROR', payload: null })
       dispatch({ type: 'LOGIN', payload: res.user })
       createUserProfile(profileData)

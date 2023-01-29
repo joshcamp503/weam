@@ -10,7 +10,8 @@ Current:
 
   AUTH stuff:
     ForgotPassword needs "Email sent" modal after successful submit
-    Login needs email verification
+    Sign up sends verification email:
+      Need to use currentUser.emailVerified: true to gate access to app for unverified users
 
 
   Contacts:
