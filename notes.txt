@@ -9,10 +9,11 @@ Bugs:
 Current: 
 
   AUTH stuff:
+    user profile must be not be created until after email has been verified
+      -this means either persisting the signup data 
+      OR
+      -allowing 're-signup' for users who's email is already in use
     ForgotPassword needs "Email sent" modal after successful submit
-    Sign up sends verification email:
-      Need to use currentUser.emailVerified: true to gate access to app for unverified users
-
 
   Contacts:
     Change pagination to react-window evnetually

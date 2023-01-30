@@ -1,7 +1,6 @@
 // UTILS
 import { useHelpers } from '../useHelpers'
 // REACT
-import { useState } from 'react'
 import { useAuthContext } from './useAuthContext'
 import { useProfile } from '../useProfile'
 // FIREBASE IMPORTS
@@ -9,30 +8,26 @@ import { auth } from '../../firebase/config'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 
 export const useLogin = () => {
-  const [error, setError] = useState(null)
   const { dispatch } = useAuthContext()
   const { initUser } = useProfile()
   const { removePassword } = useHelpers()
 
   const login = async (values) => {
-    setError(null)
+    dispatch({ type: 'ERROR', payload: null })
     const { email, password } = values
     const profileData = removePassword(values)
     try {
       const res = await signInWithEmailAndPassword(auth, email, password)
       if (!res.user.emailVerified) {
-        throw new Error("User email is not verified")
+        throw new Error("new user email verification")
       }
-      dispatch({ type: 'ERROR', payload: null })
       dispatch({ type: 'LOGIN', payload: res.user })
       initUser(profileData)
     } catch (err) {
-      setError(err)
-      console.log(err)
       dispatch({ type: 'ERROR', payload: err })
     }
 
   }
 
-  return { error, login }
+  return { login }
 }

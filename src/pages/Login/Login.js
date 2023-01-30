@@ -15,6 +15,7 @@ import { useFormik } from 'formik'
 import * as yup from 'yup'
 import NotRegistered from '../../components/NotRegistered'
 import ForgotPassword from '../../components/ForgotPassword'
+import { useAuthContext } from '../../hooks/auth/useAuthContext'
 
 const validationSchema = yup.object({
   email: yup
@@ -28,7 +29,8 @@ const validationSchema = yup.object({
 })
 
 const Login = () => {
-  const { error, login } = useLogin()
+  const { login } = useLogin()
+  const { authError } = useAuthContext()
 
   const formik = useFormik({
     initialValues: {
@@ -96,7 +98,7 @@ const Login = () => {
                     >
                     Log In  
                     </Button>
-                  {error && <AuthErrorMessage authType='login' />}
+                  {authError && <AuthErrorMessage authType='login' />}
                 </form>
               </Grid>
 

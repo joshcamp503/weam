@@ -3,8 +3,8 @@ import { useAuthContext } from './auth/useAuthContext'
 import { auth, firestore } from '../firebase/config'
 import { updateEmail } from 'firebase/auth'
 import { 
-  getDocs, collection, query, where, 
-  doc, setDoc, getDoc, updateDoc,
+  getDocs, query, where, 
+  collection,doc, setDoc, getDoc, updateDoc,
   arrayUnion, arrayRemove
 } from 'firebase/firestore'
 
@@ -14,20 +14,13 @@ export const useProfile = () => {
   const createUserProfile = async (data) => {
     const docRef = doc(collection(firestore, 'userDocs'))
     setDoc(docRef, {...data, id: docRef.id})
-    initUser(docRef.id, { signup: true })
   }
 
-  const fetchUserDoc = async (userRef, options) => {
-    if (options && options.signup === true) {
-      const docRef = doc(firestore, `userDocs`, userRef)
-      const userDoc = await getDoc(docRef)
-      return userDoc
-    } else {
-      const q = query(collection(firestore, 'userDocs'), where('email', "==", userRef.email))
-      const querySnapshot = await getDocs(q)
-      const [ userDoc ] = querySnapshot.docs
-      return userDoc
-    }
+  const fetchUserDoc = async (userRef/*, options*/) => {
+    const q = query(collection(firestore, 'userDocs'), where('email', "==", userRef.email))
+    const querySnapshot = await getDocs(q)
+    const [ userDoc ] = querySnapshot.docs
+    return userDoc
   }
 
   const initUser = async (userRef, options) => {
@@ -74,7 +67,7 @@ export const useProfile = () => {
       contacts: arrayUnion(newValue)
     })
     setUser(userId)
-  }
+  }                             
 
   const editUserData = async (userId, value) => {
     const userDoc = doc(firestore, `userDocs`, userId)

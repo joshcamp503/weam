@@ -13,8 +13,8 @@ const AuthErrorMessage = ({ authType }) => {
   const createErrorText = () => {
     if (authType === 'login') {
       switch (authError.message) {
-        case 'User email is not verified':
-          return 'User email is not verified'
+        case 'new user verification':
+          return 'You must verify your email before you can log in. A verification link has been sent to your email.';
         default:
           return 'There was a problem logging in... Please check your email and password and try again.'
       }

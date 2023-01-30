@@ -1,36 +1,39 @@
 // UTILS
 import { useHelpers } from '../useHelpers'
 // REACT
-import { useState } from 'react'
 import { useAuthContext } from './useAuthContext'
 import { useProfile } from '../useProfile'
 // FIREBASE IMPORTS
 import { auth } from '../../firebase/config'
 import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth'
+import { useLogout } from './useLogout'
+import { useNavigate } from 'react-router-dom'
 
 export const useSignup = () => {
-  const [error, setError] = useState(null)
   const { dispatch } = useAuthContext()
   const { createUserProfile } = useProfile()
   const { removePassword } = useHelpers()
+  const { logout } = useLogout()
+  const navigate = useNavigate()
 
   const signup = async (values) => {
-    setError(null)
+    // clear any errors, extract form values, remove password
+    dispatch({ type: 'ERROR', payload: null })
     const { email, password } = values
     const profileData = removePassword(values)
     try {
-      const res = await createUserWithEmailAndPassword(auth, email, password)
+      await createUserWithEmailAndPassword(auth, email, password)
       await sendEmailVerification(auth.currentUser)
-      dispatch({ type: 'ERROR', payload: null })
-      dispatch({ type: 'LOGIN', payload: res.user })
+      await logout()
       createUserProfile(profileData)
+      const verificationError = new Error(`new user verification`)
+      dispatch({ type: 'ERROR', payload: verificationError })
+      navigate('/login')
     } catch (err) {
-      setError(err.message)
-      console.log(err.code)
       dispatch({ type: 'ERROR', payload: err.code })
     }
 
   }
 
-  return { error, signup }
+  return { signup }
 }
