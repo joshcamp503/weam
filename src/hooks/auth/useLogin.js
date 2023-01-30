@@ -20,6 +20,9 @@ export const useLogin = () => {
     const profileData = removePassword(values)
     try {
       const res = await signInWithEmailAndPassword(auth, email, password)
+      if (!res.user.emailVerified) {
+        throw new Error("User email is not verified")
+      }
       dispatch({ type: 'ERROR', payload: null })
       dispatch({ type: 'LOGIN', payload: res.user })
       initUser(profileData)

@@ -12,7 +12,12 @@ const AuthErrorMessage = ({ authType }) => {
 
   const createErrorText = () => {
     if (authType === 'login') {
-      return 'There was a problem logging in... Please check your email and password and try again.'
+      switch (authError.message) {
+        case 'User email is not verified':
+          return 'User email is not verified'
+        default:
+          return 'There was a problem logging in... Please check your email and password and try again.'
+      }
     } else if (authType === 'signup') {
       switch (authError) {
         case 'auth/email-already-in-use':
@@ -23,7 +28,6 @@ const AuthErrorMessage = ({ authType }) => {
     }
   }
 
-  console.log(authType)
 
   return (
     <Card className='auth-error-message' variant="outlined" sx={errStyle}>
