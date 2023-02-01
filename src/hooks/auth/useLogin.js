@@ -18,12 +18,15 @@ export const useLogin = () => {
     const profileData = removePassword(values)
     try {
       const res = await signInWithEmailAndPassword(auth, email, password)
+      console.log(res)
       if (!res.user.emailVerified) {
         throw new Error("new user email verification")
+      } else {
+        dispatch({ type: 'LOGIN', payload: res.user })
+        initUser(profileData)
       }
-      dispatch({ type: 'LOGIN', payload: res.user })
-      initUser(profileData)
     } catch (err) {
+      console.log(err)
       dispatch({ type: 'ERROR', payload: err })
     }
 

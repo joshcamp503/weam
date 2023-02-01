@@ -23,9 +23,9 @@ export const useSignup = () => {
     const profileData = removePassword(values)
     try {
       await createUserWithEmailAndPassword(auth, email, password)
+      createUserProfile(profileData)
       await sendEmailVerification(auth.currentUser)
       await logout()
-      createUserProfile(profileData)
       const verificationError = new Error(`new user verification`)
       dispatch({ type: 'ERROR', payload: verificationError })
       navigate('/login')

@@ -23,7 +23,7 @@ const AuthErrorMessage = ({ authType }) => {
         case 'auth/email-already-in-use':
           return 'That email is already in use'
         default:
-          return authError
+          return authError.message
       }
     }
   }

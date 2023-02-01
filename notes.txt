@@ -9,10 +9,11 @@ Bugs:
 Current: 
 
   AUTH stuff:
-    user profile must be not be created until after email has been verified
-      -this means either persisting the signup data 
-      OR
-      -allowing 're-signup' for users who's email is already in use
+    user profiles not verified after 24 hours should be deleted
+    if email is already in use but not verified:
+      throw unverified email error
+      offer to resend verification
+      offer to sign up and verify again 
     ForgotPassword needs "Email sent" modal after successful submit
 
   Contacts:
