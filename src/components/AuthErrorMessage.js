@@ -4,11 +4,28 @@ import { useAuthContext } from '../hooks/auth/useAuthContext'
 const AuthErrorMessage = ({ authType }) => {
   const { authError } = useAuthContext()
 
-  const errStyle = {
-    p: 1,
-    bgcolor: '#FFCCCB',
-    borderColor: 'error.main'
+  const getErrorColor = () => {
+    if (authError.message === 'new user verification') {
+      const errStyle = {
+        m: 1,
+        p: 1,
+        // bgcolor: '#FFCCCB',
+        bgcolor: '#fff176',
+        borderColor: '#fdd835'
+      }
+      return errStyle
+    } else {
+      const errStyle = {
+        m: 1,
+        p: 1,
+        bgcolor: '#FFCCCB',
+        borderColor: 'error.main'
+      }
+      return errStyle
+    }
   }
+
+  
 
   const createErrorText = () => {
     if (authType === 'login') {
@@ -30,7 +47,7 @@ const AuthErrorMessage = ({ authType }) => {
 
 
   return (
-    <Card className='auth-error-message' variant="outlined" sx={errStyle}>
+    <Card className='auth-error-message' variant="outlined" sx={getErrorColor()}>
       {createErrorText()}
     </Card>
   )

@@ -12,6 +12,7 @@ import * as yup from 'yup'
 // AUTH
 import { auth } from "../firebase/config"
 import { sendPasswordResetEmail } from "firebase/auth"
+import { useAuthContext } from '../hooks/auth/useAuthContext';
 
 
 const validationSchema = yup.object({
@@ -34,10 +35,16 @@ const ForgotPassword = () => {
     validationSchema
   })
 
+  const { dispatch } = useAuthContext()
+  const clearError = () => {
+    dispatch({ type: 'ERROR', payload: null })
+  }
+
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
     formik.resetForm()
+    clearError()
     setOpen(true);
   };
 

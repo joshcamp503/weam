@@ -20,7 +20,7 @@ export const useLogin = () => {
       const res = await signInWithEmailAndPassword(auth, email, password)
       console.log(res)
       if (!res.user.emailVerified) {
-        throw new Error("new user email verification")
+        throw new Error("new user verification")
       } else {
         dispatch({ type: 'LOGIN', payload: res.user })
         initUser(profileData)

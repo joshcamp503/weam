@@ -11,14 +11,19 @@ import { useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../hooks/auth/useAuthContext';
 
 export default function FadeMenu() {
-  const { user } = useAuthContext()
+  const { dispatch, user } = useAuthContext()
   const navigate = useNavigate()
   const { logout } = useLogout()
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
+  const clearError = () => {
+    dispatch({ type: 'ERROR', payload: null })
+  }
+
   const handleClick = (event) => {
     if (!user) {
+      clearError()
       navigate('/')
     } else {
       setAnchorEl(event.currentTarget);
@@ -59,7 +64,9 @@ export default function FadeMenu() {
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
       >
-        <Typography className='weam' variant="h4" component="h1" sx={{ letterSpacing: '4px' }}>WEAM</Typography>
+        <Typography className='weam' variant="h4" component="h1" sx={{ letterSpacing: '4px' }}>
+          WEAM
+        </Typography>
       </Button>
       <Menu
         id="fade-menu"
