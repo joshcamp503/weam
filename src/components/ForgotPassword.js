@@ -29,7 +29,11 @@ const ForgotPassword = () => {
       email: ""
     },
     onSubmit: (values) => {
-      sendPasswordResetEmail(auth, values.email).then(() => {console.log('email sent')})
+      sendPasswordResetEmail(auth, values.email)
+        .then(() => {
+          console.log('email sent')
+          setConfirm(true)
+        })
       setOpen(false)
     }, 
     validationSchema
@@ -41,6 +45,7 @@ const ForgotPassword = () => {
   }
 
   const [open, setOpen] = React.useState(false);
+  const [confirm, setConfirm] = React.useState(false);
 
   const handleClickOpen = () => {
     formik.resetForm()
@@ -51,6 +56,10 @@ const ForgotPassword = () => {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const closeConfirm = () => {
+    setConfirm(false)
+  }
 
   return (
     <div>
@@ -88,6 +97,14 @@ const ForgotPassword = () => {
             <Button type='submit' >Save</Button>
           </DialogActions>
         </form>
+      </Dialog>
+      <Dialog open={confirm} onClose={closeConfirm} fullWidth>
+        <DialogTitle sx={{ p: 0, px: 14, textAlign: 'center', mt: 8, mb: 2 }}>
+          A password reset link has been sent to your email
+        </DialogTitle>
+        <DialogActions sx={{ m: 2 }}>
+            <Button onClick={closeConfirm}>Got it!</Button>
+        </DialogActions>
       </Dialog>
     </div>
   );

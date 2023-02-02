@@ -14,7 +14,6 @@ Current:
       throw unverified email error
       offer to resend verification
       offer to sign up and verify again 
-    ForgotPassword needs "Email sent" modal after successful submit
 
   Contacts:
     Change pagination to react-window evnetually
