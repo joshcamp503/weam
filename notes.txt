@@ -11,8 +11,10 @@ Current:
   AUTH stuff:
   **Firebase auth password reset & email verify expire after x amount of time... no need to handle expiration of auth requests
   **Firebase Password reset automatically verifies email
-    user profiles not verified after 24 hours should be deleted
+    user profiles not verified after 24 hours should be deleted:
+      use firebase function after auth expires, or sync user creation time with verification expiration time
     if email is already in use but not verified:
+      userCredential.user.emailVerified
       throw unverified email error
       offer to resend verification
       offer to sign up and verify again 
