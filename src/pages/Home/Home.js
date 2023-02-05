@@ -17,6 +17,8 @@ const Home = () => {
   const { user } = useAuthContext()
   const { logout } = useLogout()
 
+  const aboutText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
   return (
     <Stack>
       {/* TITLE */}
@@ -27,7 +29,7 @@ const Home = () => {
         gutterBottom
         sx={{mt: 12, mb: 4}}
       >
-        {user ? 'DASHBOARD' : 'GET STARTED'}
+        {user ? 'DASHBOARD' : 'ABOUT'}
       </Typography>
 
       {/* CARD */}
@@ -38,7 +40,19 @@ const Home = () => {
             <Grid container alignItems='center' justifyContent='center'>
 
               <Grid item xs={12}>
-                <Button component={NavLink} to="/sub-request" sx={btn} variant="contained" size="large">Find Subs</Button>
+                {user ? 
+                  <Button component={NavLink} to="/sub-request" sx={btn} variant="contained" size="large">Find Subs</Button> 
+                  :              
+                  <Typography 
+                    variant="p" 
+                    color="initial" 
+                    component="p" 
+                    gutterBottom
+                    sx={{mb: 12}}
+                  >
+                    {aboutText}
+                  </Typography>
+                }
               </Grid>
               <Grid item xs={12}>
                 {!user && <Button component={NavLink} to="/login" sx={btn} variant="contained" size="large">Log In</Button>}

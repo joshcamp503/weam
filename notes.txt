@@ -9,6 +9,8 @@ Bugs:
 Current: 
 
   AUTH stuff:
+  **Firebase auth password reset & email verify expire after x amount of time... no need to handle expiration of auth requests
+  **Firebase Password reset automatically verifies email
     user profiles not verified after 24 hours should be deleted
     if email is already in use but not verified:
       throw unverified email error
