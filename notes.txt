@@ -9,8 +9,8 @@ Bugs:
 Current: 
 
   Sub Request Form: 
-    Float request button and back to home button
-    import and list contacts, full scroll
+    Edit existing contact list or create new one for sub request form
+    If necessary, separate Contact List and Add Contact button
 
   AUTH stuff:
   **Firebase auth password reset & email verify expire after x amount of time... no need to handle expiration of auth requests

@@ -16,6 +16,7 @@ import { MobileTimePicker } from '@mui/x-date-pickers/MobileTimePicker'
 // FORMS
 import { useFormik } from 'formik'
 import * as yup from 'yup'
+import ContactList from '../../components/ContactList'
 
 ///// YUP VALIDATION SCHEMA /////
 // const phoneRegExp = /^\(?[0-9]{3}\)?\s?-?\.?\s?[0-9]{3}\s?-?\.?\s?[0-9]{4}$/g
@@ -82,8 +83,6 @@ const SubRequest = () => {
 
   const numOptions = [...Array(10).keys()]
 
-  const style = { position: 'absolute', top: '75%', left: '25%', width: '50%' }
-
   return (
     <Stack>
       {/* Title */}
@@ -100,12 +99,12 @@ const SubRequest = () => {
       {/* Card */}
       <Grid container alignItems='center' justifyContent='center' >
 
-        <Grid item xs={10} sm={8} md={6} lg={4}>
+        <Grid item xs={12} sm={8} md={6} lg={4}>
           <Paper elevation={3} sx={{ py: 6 }}>
             <Grid container alignItems='center' justifyContent='center'>
 
               {/* Input Fields */}
-              <Grid item xs={8}>
+              <Grid item xs={10}>
                 <form noValidate autoComplete='off' onSubmit={formik.handleSubmit}>
                   <Stack spacing={1}>
                     <TextField
@@ -165,20 +164,8 @@ const SubRequest = () => {
                       helperText={formik.touched.location && formik.errors.location}
                     />
 
-                    <TextField
-                      label='Invite who?'
-                      id='contacts'
-                      variant='outlined'
-                      // inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
-                      required
-                      fullWidth
-                      {...formik.getFieldProps('contacts')}
-                      error={formik.touched.contacts && Boolean(formik.errors.contacts)}
-                      helperText={formik.touched.contacts && formik.errors.contacts}
-                    />
                     <Box>
                       <Grid container spacing={1}>
-
                         <Grid item xs>
                           <TextField
                             label='Male players?'
@@ -196,7 +183,6 @@ const SubRequest = () => {
                             })}
                           </TextField>
                         </Grid>
-
                         <Grid item xs>
                           <TextField
                             label='Female players?'
@@ -214,9 +200,34 @@ const SubRequest = () => {
                             })}
                           </TextField>
                         </Grid>
-
                       </Grid>
                     </Box>
+
+                    <Typography 
+                      variant="h6" 
+                      color="initial" 
+                      component="h6" 
+                      gutterBottom
+                      sx={{
+                        alignSelf: 'flex-start'
+                      }}
+                    >
+                      Contacts:
+                    </Typography>
+                    <ContactList />
+
+                    {/* <TextField
+                      label='Invite who?'
+                      id='contacts'
+                      variant='outlined'
+                      // inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
+                      required
+                      fullWidth
+                      {...formik.getFieldProps('contacts')}
+                      error={formik.touched.contacts && Boolean(formik.errors.contacts)}
+                      helperText={formik.touched.contacts && formik.errors.contacts}
+                    /> */}
+                    
                   </Stack>
                 </form>
               </Grid>
@@ -226,15 +237,30 @@ const SubRequest = () => {
         </Grid>
 
       </Grid>
+      <Grid 
+        item 
+        sx={{ 
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 1,
+          position: 'fixed',
+            top: '90%', 
+            left: '50%', 
+          transform: 'translate(-50%, -50%)',
+          width: '200px',
+          maxWidth: '60%'
+        }} 
+      >
         <Button 
           variant="contained"
           color="primary"
           type='submit'
-          sx={{ position: 'absolute', top: '80%', left: '25%', width: '50%' }}
+          sx={{p: 1.5}}
         >
           Send Request
         </Button>
-        <BackButton style={style}/>
+        <BackButton style={{m: 1, p: 1}} />
+      </Grid>
     </Stack>
   )
 }
