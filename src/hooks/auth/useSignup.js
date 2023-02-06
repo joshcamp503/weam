@@ -22,7 +22,8 @@ export const useSignup = () => {
     const { email, password } = values
     const profileData = removePassword(values)
     try {
-      await createUserWithEmailAndPassword(auth, email, password)
+      const res = await createUserWithEmailAndPassword(auth, email, password)
+      console.log(res)
       createUserProfile(profileData)
       await sendEmailVerification(auth.currentUser)
       await logout()

@@ -8,6 +8,10 @@ Bugs:
 
 Current: 
 
+  Sub Request Form: 
+    Float request button and back to home button
+    import and list contacts, full scroll
+
   AUTH stuff:
   **Firebase auth password reset & email verify expire after x amount of time... no need to handle expiration of auth requests
   **Firebase Password reset automatically verifies email
@@ -15,7 +19,7 @@ Current:
       use firebase function after auth expires, or sync user creation time with verification expiration time
     if email is already in use but not verified:
       userCredential.user.emailVerified
-      throw unverified email error
+      throw unverified email error (done)
       offer to resend verification
       offer to sign up and verify again 
 

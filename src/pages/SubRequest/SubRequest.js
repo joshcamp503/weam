@@ -82,6 +82,8 @@ const SubRequest = () => {
 
   const numOptions = [...Array(10).keys()]
 
+  const style = { position: 'absolute', top: '75%', left: '25%', width: '50%' }
+
   return (
     <Stack>
       {/* Title */}
@@ -215,14 +217,6 @@ const SubRequest = () => {
 
                       </Grid>
                     </Box>
-                    <Button 
-                      variant="contained"
-                      color="primary"
-                      type='submit'
-                      fullWidth
-                    >
-                      Send Request
-                    </Button>
                   </Stack>
                 </form>
               </Grid>
@@ -232,7 +226,15 @@ const SubRequest = () => {
         </Grid>
 
       </Grid>
-      <BackButton />
+        <Button 
+          variant="contained"
+          color="primary"
+          type='submit'
+          sx={{ position: 'absolute', top: '80%', left: '25%', width: '50%' }}
+        >
+          Send Request
+        </Button>
+        <BackButton style={style}/>
     </Stack>
   )
 }
