@@ -2,6 +2,7 @@
 import { useHelpers } from '../../hooks/useHelpers'
 import { useSubRequest } from '../../hooks/useSubRequest'
 import BackButton from '../../components/BackButton'
+import CheckboxList from '../../components/CheckboxList'
 // MUI
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
@@ -16,7 +17,6 @@ import { MobileTimePicker } from '@mui/x-date-pickers/MobileTimePicker'
 // FORMS
 import { useFormik } from 'formik'
 import * as yup from 'yup'
-import ContactList from '../../components/ContactList'
 
 ///// YUP VALIDATION SCHEMA /////
 // const phoneRegExp = /^\(?[0-9]{3}\)?\s?-?\.?\s?[0-9]{3}\s?-?\.?\s?[0-9]{4}$/g
@@ -70,7 +70,8 @@ const SubRequest = () => {
       location: "",
       contacts: "",
       males: "",
-      females: ""
+      females: "",
+      invite: []
     },
     onSubmit: async (values) => {
       const formattedValues = formatData(values)
@@ -214,7 +215,7 @@ const SubRequest = () => {
                     >
                       Contacts:
                     </Typography>
-                    <ContactList />
+                    <CheckboxList />
 
                     {/* <TextField
                       label='Invite who?'
