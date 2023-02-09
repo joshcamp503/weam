@@ -9,8 +9,9 @@ Bugs:
 Current: 
 
   Sub Request Form: 
-    Finish checkboxlist form control  
-      Handle Checkbox onChange; currently checking one box checks all boxes
+    Need to create a separate component for checkbox and handle state inside THAT component
+       
+      
 
   AUTH stuff:
   **Firebase auth password reset & email verify expire after x amount of time... no need to handle expiration of auth requests
