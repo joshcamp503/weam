@@ -35,10 +35,6 @@ const validationSchema = yup.object({
   location: yup
     .string("Enter event location")
     .required("Location is required"),
-  contacts: yup
-    .string("Enter contact's phone number")
-    .email("Enter a valid email")
-    .required("Phone number is required"),
   males: yup
     .number()
     .required("Number of male players is required")
@@ -75,8 +71,9 @@ const SubRequest = () => {
     },
     onSubmit: async (values) => {
       const formattedValues = formatData(values)
-      formattedValues.creator = userData || "guest"
-      await createSubRequest(formattedValues)
+      formattedValues.creator = userData.id
+      // await createSubRequest(formattedValues)
+      console.log(values)
       formik.resetForm()
     },
     validationSchema
@@ -98,7 +95,7 @@ const SubRequest = () => {
       </Typography>
 
       {/* Card */}
-      <Grid container alignItems='center' justifyContent='center' >
+      <Grid container alignItems='center' justifyContent='center' sx={{ mb: '200px'}}>
 
         <Grid item xs={12} sm={8} md={6} lg={4}>
           <Paper elevation={3} sx={{ py: 6 }}>
@@ -216,18 +213,30 @@ const SubRequest = () => {
                       Contacts:
                     </Typography>
                     <CheckboxList />
-
-                    {/* <TextField
-                      label='Invite who?'
-                      id='contacts'
-                      variant='outlined'
-                      // inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
-                      required
-                      fullWidth
-                      {...formik.getFieldProps('contacts')}
-                      error={formik.touched.contacts && Boolean(formik.errors.contacts)}
-                      helperText={formik.touched.contacts && formik.errors.contacts}
-                    /> */}
+                    <Grid 
+                      item 
+                      sx={{ 
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: 1,
+                        position: 'fixed',
+                          top: '90%', 
+                          left: '50%', 
+                        transform: 'translate(-50%, -50%)',
+                        width: '200px',
+                        maxWidth: '60%'
+                      }} 
+                    >
+                      <Button 
+                        variant="contained"
+                        color="primary"
+                        type='submit'
+                        sx={{p: 1.5}}
+                      >
+                        Send Request
+                      </Button>
+                      <BackButton style={{m: 1, p: 1}} />
+                    </Grid>
                     
                   </Stack>
                 </form>
@@ -238,30 +247,7 @@ const SubRequest = () => {
         </Grid>
 
       </Grid>
-      <Grid 
-        item 
-        sx={{ 
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 1,
-          position: 'fixed',
-            top: '90%', 
-            left: '50%', 
-          transform: 'translate(-50%, -50%)',
-          width: '200px',
-          maxWidth: '60%'
-        }} 
-      >
-        <Button 
-          variant="contained"
-          color="primary"
-          type='submit'
-          sx={{p: 1.5}}
-        >
-          Send Request
-        </Button>
-        <BackButton style={{m: 1, p: 1}} />
-      </Grid>
+      
     </Stack>
   )
 }

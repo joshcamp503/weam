@@ -9,8 +9,8 @@ Bugs:
 Current: 
 
   Sub Request Form: 
-    Edit existing contact list or create new one for sub request form
-    If necessary, separate Contact List and Add Contact button
+    Finish checkboxlist form control  
+      Handle Checkbox onChange; currently checking one box checks all boxes
 
   AUTH stuff:
   **Firebase auth password reset & email verify expire after x amount of time... no need to handle expiration of auth requests

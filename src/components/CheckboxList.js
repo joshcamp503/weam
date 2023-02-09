@@ -9,6 +9,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import { useState } from 'react';
 
 const CheckboxList = () => {
 
@@ -23,9 +25,16 @@ const CheckboxList = () => {
   const { contacts } = JSON.parse(localStorage.getItem('user'))
   contacts.sort((a, b) => a.name.localeCompare(b.name))
 
+  const [checked, setChecked] = useState(false)
+
+  const handleChange = (e) => {
+    setChecked(e.target.checked)
+    console.log(e)
+  }
+
   return (
     <>
-    <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+    <Paper sx={{ width: '100%', overflow: 'hidden', mb: '200px' }}>
       <TableContainer >
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
@@ -52,7 +61,11 @@ const CheckboxList = () => {
                           ? column.format(value)
                           : value
                         }
-                        {column.id === 'invite' && <Checkbox checked={false}/>}
+                        {column.id === 'invite' && 
+                          <FormControlLabel
+                          control={<Checkbox checked={checked} onChange={handleChange} />}
+                          />
+                        }
                       </TableCell>
                     );
                   })}
