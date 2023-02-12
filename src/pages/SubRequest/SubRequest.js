@@ -212,7 +212,7 @@ const SubRequest = () => {
                     >
                       Contacts:
                     </Typography>
-                    <CheckboxList />
+                    <CheckboxList id="invite" />
                     <Grid 
                       item 
                       sx={{ 

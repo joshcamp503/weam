@@ -1,5 +1,5 @@
 // REACT
-import * as React from 'react';
+// import * as React from 'react';
 // MUI
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
@@ -8,9 +8,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Checkbox from '@mui/material/Checkbox';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import { useState } from 'react';
+import FormCheckbox from './FormCheckbox';
 
 const CheckboxList = () => {
 
@@ -24,13 +22,6 @@ const CheckboxList = () => {
   // GET USER DATA FROM LOCAL STORAGE AND POPULATE TABLE, SORTED ALPHABETICALLY BY NAME
   const { contacts } = JSON.parse(localStorage.getItem('user'))
   contacts.sort((a, b) => a.name.localeCompare(b.name))
-
-  const [checked, setChecked] = useState(false)
-
-  const handleChange = (e) => {
-    setChecked(e.target.checked)
-    console.log(e)
-  }
 
   return (
     <>
@@ -62,9 +53,7 @@ const CheckboxList = () => {
                           : value
                         }
                         {column.id === 'invite' && 
-                          <FormControlLabel
-                          control={<Checkbox checked={checked} onChange={handleChange} />}
-                          />
+                          <FormCheckbox />
                         }
                       </TableCell>
                     );
