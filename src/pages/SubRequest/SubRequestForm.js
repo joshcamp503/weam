@@ -17,6 +17,7 @@ import { MobileTimePicker } from '@mui/x-date-pickers/MobileTimePicker'
 import { Formik, Form } from 'formik'
 import * as yup from 'yup'
 import MyTextInput from '../../components/form-components/MyTextInput'
+import MyNumSelector from '../../components/form-components/MyNumSelector'
 
 const SubRequestForm = () => {
   const userData = JSON.parse(localStorage.getItem('user'))
@@ -138,6 +139,7 @@ const SubRequestForm = () => {
             <Box>
               <Grid container spacing={1}>
                 <Grid item xs>
+                  <MyNumSelector label="Male players" name="males" id="males" />
                   {/* <TextField
                     label='Male players?'
                     id='males'
@@ -155,6 +157,7 @@ const SubRequestForm = () => {
                   </TextField> */}
                 </Grid>
                 <Grid item xs>
+                  <MyNumSelector label="Female players" name="females" id="females" />
                   {/* <TextField
                     label='Female players?'
                     id='females'

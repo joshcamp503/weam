@@ -3,9 +3,7 @@ import TextField from "@mui/material/TextField"
 
 const MyTextInput = ({ label, ...props }) => {
   const [field, meta] = useField(props)
-  console.log(props)
-  console.log(field)
-  console.log(meta)
+  
   return (
       <TextField
         label={label}
