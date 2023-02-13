@@ -6,7 +6,6 @@ const MyDatePicker = ({ label, ...props }) => {
   const formik = useFormikContext()
   const [field, meta] = useField(props)
 
-
   return (
     <MobileDatePicker
       label={label}

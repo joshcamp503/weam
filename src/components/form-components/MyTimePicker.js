@@ -5,8 +5,6 @@ import TextField from "@mui/material/TextField"
 const MyTimePicker = ({ label, ...props }) => {
   const formik = useFormikContext()
   const [field, meta] = useField(props)
-  console.log(meta.value)
-
 
   return (
     <MobileTimePicker
