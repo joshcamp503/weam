@@ -53,7 +53,7 @@ const CheckboxList = () => {
                           : value
                         }
                         {column.id === 'invite' && 
-                          <FormCheckbox />
+                          <FormCheckbox user={contact}/>
                         }
                       </TableCell>
                     );
