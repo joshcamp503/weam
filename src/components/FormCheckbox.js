@@ -4,18 +4,17 @@ import { useState } from 'react';
 
 
 
-const FormCheckbox = ({ contact }) => {
-
+const FormCheckbox = ({ user }) => {
+  console.log(user)
   const [checked, setChecked] = useState(false)
 
   const handleChange = (e) => {
     setChecked(e.target.checked)
-    console.log(e.target)
   }
 
   return (
     <FormControlLabel
-      control={<Checkbox name="invite" checked={checked} value={contact} onChange={handleChange} />}
+      control={<Checkbox name="invite" checked={checked} value={user} onChange={handleChange} />}
       sx={{ m: 'auto' }}
     />
   )
