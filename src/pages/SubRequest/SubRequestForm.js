@@ -19,6 +19,7 @@ import * as yup from 'yup'
 import MyTextInput from '../../components/form-components/MyTextInput'
 import MyNumSelector from '../../components/form-components/MyNumSelector'
 import MyDatePicker from '../../components/form-components/MyDatePicker'
+import MyTimePicker from '../../components/form-components/MyTimePicker'
 
 const SubRequestForm = () => {
   const userData = JSON.parse(localStorage.getItem('user'))
@@ -81,6 +82,7 @@ const SubRequestForm = () => {
             <MyTextInput label="For What?" name="event" id="event"/>
             <MyTextInput label="Where?" name="location" id="location"/>
             <MyDatePicker label="Which day?" name="date" id="date" />
+            <MyTimePicker label="What time?" name="time" id="time" />
             {/* <MobileDatePicker
               renderInput={(props) => (
                 <TextField 
