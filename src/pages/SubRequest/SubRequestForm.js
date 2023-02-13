@@ -18,6 +18,7 @@ import { Formik, Form } from 'formik'
 import * as yup from 'yup'
 import MyTextInput from '../../components/form-components/MyTextInput'
 import MyNumSelector from '../../components/form-components/MyNumSelector'
+import MyDatePicker from '../../components/form-components/MyDatePicker'
 
 const SubRequestForm = () => {
   const userData = JSON.parse(localStorage.getItem('user'))
@@ -79,16 +80,7 @@ const SubRequestForm = () => {
           <Stack spacing={1}>
             <MyTextInput label="For What?" name="event" id="event"/>
             <MyTextInput label="Where?" name="location" id="location"/>
-            {/* <TextField
-              label='For what?'
-              id='event'
-              variant='outlined'
-              required
-              fullWidth
-              {...formik.getFieldProps('event')}
-              error={formik.touched.event && Boolean(formik.errors.event)}
-              helperText={formik.touched.event && formik.errors.event}
-            /> */}
+            <MyDatePicker label="Which day?" name="date" id="date" />
             {/* <MobileDatePicker
               renderInput={(props) => (
                 <TextField 
@@ -125,54 +117,14 @@ const SubRequestForm = () => {
                 formik.setFieldValue("time", value)
               )}
             /> */}
-            {/* <TextField
-              label='Where?'
-              id='location'
-              variant='outlined'
-              required
-              fullWidth
-              {...formik.getFieldProps('location')}
-              error={formik.touched.location && Boolean(formik.errors.location)}
-              helperText={formik.touched.location && formik.errors.location}
-            /> */}
 
             <Box>
               <Grid container spacing={1}>
                 <Grid item xs>
                   <MyNumSelector label="Male players" name="males" id="males" />
-                  {/* <TextField
-                    label='Male players?'
-                    id='males'
-                    variant='outlined'
-                    select={true}
-                    fullWidth
-                    required
-                    {...formik.getFieldProps('males')}
-                    error={formik.touched.males && Boolean(formik.errors.males)}
-                    helperText={formik.touched.males && formik.errors.males}
-                  >
-                    {numOptions.map(num => {
-                      return <MenuItem key={`num${num}`} value={num}>{num}</MenuItem>
-                    })}
-                  </TextField> */}
                 </Grid>
                 <Grid item xs>
                   <MyNumSelector label="Female players" name="females" id="females" />
-                  {/* <TextField
-                    label='Female players?'
-                    id='females'
-                    variant='outlined'
-                    select={true}
-                    fullWidth
-                    required
-                    {...formik.getFieldProps('females')}
-                    error={formik.touched.females && Boolean(formik.errors.females)}
-                    helperText={formik.touched.females && formik.errors.females}
-                  >
-                    {numOptions.map(num => {
-                      return <MenuItem key={`num${num}`} value={num}>{num}</MenuItem>
-                    })}
-                  </TextField> */}
                 </Grid>
               </Grid>
             </Box>
