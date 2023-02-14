@@ -5,7 +5,7 @@ import MenuItem from '@mui/material/MenuItem'
 const MyTextInput = ({ label, ...props }) => {
   const [field, meta] = useField(props)
   
-  const numOptions = [...Array(10).keys()]
+  const numOptions = [...Array(21).keys()]
   
   return (
       <TextField
