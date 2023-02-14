@@ -52,14 +52,14 @@ const SubRequestForm = () => {
           .positive()
           .integer()
           .min(0, "Must be a positive number")
-          .max(9, "Number cannot be greater than 9"),
+          .max (20, "Number cannot be greater than 20"),
         females: yup
           .number()
           .required("Number of female players is required")
           .positive()
           .integer()
           .min(0, "Must be a positive number")
-          .max(9, "Number cannot be greater than 9"),
+          .max(20, "Number cannot be greater than 20"),
       })}
       onSubmit = {async (values, actions) => {
         // const formattedValues = formatData(values)
