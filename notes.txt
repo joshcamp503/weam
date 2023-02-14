@@ -9,7 +9,7 @@ Bugs:
 Current: 
 
   Sub Request Form: 
-  Checkbox being handled by formik
+  Add male/female to contacts in userDoc, contact list, checkboxlist, and subRequest doc
   Set up email functionality
        
       
@@ -30,12 +30,6 @@ Current:
 
   Sub request form:
     send confirmation after submission
-    **'who' field:
-      needs to be email only
-      needs to pull contacts from user profile
-      needs to have an 'invite' feature (add contact to request)
-      added contacts need to be displayed 
-      needs to have 'add other contact' with email and male/female checkbox
   
 
 Up next:

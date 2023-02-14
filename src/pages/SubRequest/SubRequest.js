@@ -8,7 +8,6 @@ import SubRequestForm from './SubRequestForm'
 
 const SubRequest = () => {
 
-
   return (
     <Stack>
       {/* Title */}
@@ -39,7 +38,6 @@ const SubRequest = () => {
         </Grid>
 
       </Grid>
-      
     </Stack>
   )
 }

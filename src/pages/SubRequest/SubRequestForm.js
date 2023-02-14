@@ -1,6 +1,8 @@
 // REACT
+import { useState } from 'react'
 import { useSubRequest } from '../../hooks/useSubRequest'
 import CheckboxList from '../../components/CheckboxList'
+import SuccessModal from '../../components/modals/SuccessModal'
 // MUI
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
@@ -18,6 +20,7 @@ import FloatingButtons from '../../components/FloatingButtons'
 const SubRequestForm = () => {
   const userData = JSON.parse(localStorage.getItem('user'))
   const { createSubRequest } = useSubRequest()
+  const [modalOpen, setModalOpen] = useState(false)
 
   return (
     <Formik
@@ -66,6 +69,7 @@ const SubRequestForm = () => {
         // formattedValues.creator = userData.id
         values.creator = userData.id
         await createSubRequest(values)
+        setModalOpen(true)
         actions.resetForm()
       }}
     >
@@ -100,6 +104,7 @@ const SubRequestForm = () => {
             <FloatingButtons />
             
           </Stack>
+          <SuccessModal open={modalOpen} setOpen={setModalOpen} />
         </Form>
     </Formik>
   )
