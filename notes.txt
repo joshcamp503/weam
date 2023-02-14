@@ -9,8 +9,7 @@ Bugs:
 Current: 
 
   Sub Request Form: 
-    Need to create a separate component for checkbox and handle state inside THAT component
-    That component needs to be wired to <form> and reset along with formReset
+  Handle Checkbox state, form, value, reset, etc.
        
       
 

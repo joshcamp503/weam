@@ -68,7 +68,7 @@ const SubRequestForm = () => {
         const formattedValues = formatData(values)
         formattedValues.creator = userData.id
         // await createSubRequest(formattedValues)
-        console.log(values)
+        console.log(formattedValues)
         actions.resetForm()
       }}
     >

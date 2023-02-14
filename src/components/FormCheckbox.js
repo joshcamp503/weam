@@ -5,7 +5,6 @@ import { useState } from 'react';
 
 
 const FormCheckbox = ({ user }) => {
-  console.log(user)
   const [checked, setChecked] = useState(false)
 
   const handleChange = (e) => {
