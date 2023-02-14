@@ -9,7 +9,8 @@ Bugs:
 Current: 
 
   Sub Request Form: 
-  Handle Checkbox state, form, value, reset, etc.
+  Checkbox being handled by formik
+  Set up email functionality
        
       
 

@@ -1,5 +1,5 @@
-// REACT
-// import * as React from 'react';
+// FORMIK
+import { Field } from 'formik';
 // MUI
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
@@ -8,7 +8,6 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import FormCheckbox from './FormCheckbox';
 
 const CheckboxList = () => {
 
@@ -53,7 +52,7 @@ const CheckboxList = () => {
                           : value
                         }
                         {column.id === 'invite' && 
-                          <FormCheckbox user={contact}/>
+                          <Field type="checkbox" name="invite" value={contact.email} />
                         }
                       </TableCell>
                     );

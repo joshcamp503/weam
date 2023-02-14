@@ -15,7 +15,6 @@ import MyNumSelector from '../../components/form-components/MyNumSelector'
 import MyDatePicker from '../../components/form-components/MyDatePicker'
 import MyTimePicker from '../../components/form-components/MyTimePicker'
 import FloatingButtons from '../../components/FloatingButtons'
-import InviteList from '../../components/InviteList'
 
 const SubRequestForm = () => {
   const userData = JSON.parse(localStorage.getItem('user'))
@@ -100,8 +99,7 @@ const SubRequestForm = () => {
             >
               Contacts:
             </Typography>
-            <InviteList />
-            {/* <CheckboxList id="invite" /> */}
+            <CheckboxList id="invite" />
             <FloatingButtons />
             
           </Stack>
