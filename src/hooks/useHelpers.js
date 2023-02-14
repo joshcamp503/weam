@@ -16,23 +16,22 @@ export const useHelpers = () => {
     return Object.fromEntries(filteredValues)
   }
 
-  const formatPhone = (phoneString) => {
-    const rawPhoneArray = Array.from(phoneString)
-    const filteredPhoneArray = rawPhoneArray
-      .filter((char) => {
-        const regex = /^[0-9]$/
-        return char.match(regex)
-      })
-    return `+1${filteredPhoneArray.join('')}`
+  // const formatPhone = (phoneString) => {
+  //   const rawPhoneArray = Array.from(phoneString)
+  //   const filteredPhoneArray = rawPhoneArray
+  //     .filter((char) => {
+  //       const regex = /^[0-9]$/
+  //       return char.match(regex)
+  //     })
+  //   return `+1${filteredPhoneArray.join('')}`
+  // }
+
+  const formatValues = (values) => {
+    values.date = values.date.toISODate()
+    values.time = values.time.toISOTime()
+    values.dateTimeISO = values.date + 'T' + values.time
+    return values
   }
 
-  const formatData = (data) => {
-    data.date = data.date.toISODate()
-    data.time = data.time.toISOTime()
-    data.dateTimeISO = data.date + 'T' + data.time
-    data.contacts = formatPhone(data.contacts)
-    return data
-  }
-
-  return { removePassword, formatData }
+  return { removePassword, formatValues }
 }

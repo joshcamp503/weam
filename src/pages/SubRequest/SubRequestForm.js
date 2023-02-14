@@ -1,5 +1,4 @@
 // REACT
-import { useHelpers } from '../../hooks/useHelpers'
 import { useSubRequest } from '../../hooks/useSubRequest'
 import CheckboxList from '../../components/CheckboxList'
 // MUI
@@ -18,7 +17,6 @@ import FloatingButtons from '../../components/FloatingButtons'
 
 const SubRequestForm = () => {
   const userData = JSON.parse(localStorage.getItem('user'))
-  const { formatData } = useHelpers()
   const { createSubRequest } = useSubRequest()
 
   return (
@@ -29,7 +27,6 @@ const SubRequestForm = () => {
         date: "",
         time: "",
         location: "",
-        contacts: "",
         males: "",
         females: "",
         invite: []
@@ -65,10 +62,10 @@ const SubRequestForm = () => {
           .max(9, "Number cannot be greater than 9"),
       })}
       onSubmit = {async (values, actions) => {
-        const formattedValues = formatData(values)
-        formattedValues.creator = userData.id
-        // await createSubRequest(formattedValues)
-        console.log(formattedValues)
+        // const formattedValues = formatData(values)
+        // formattedValues.creator = userData.id
+        values.creator = userData.id
+        await createSubRequest(values)
         actions.resetForm()
       }}
     >
