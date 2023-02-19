@@ -33,7 +33,8 @@ const AddContact = () => {
   const formik = useFormik({
     initialValues: {
       name: "",
-      email: ""
+      email: "",
+      gender: ""
     },
     onSubmit: (values) => {
       addContact(userData.id, values)

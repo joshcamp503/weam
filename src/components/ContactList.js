@@ -28,8 +28,9 @@ const ContactList = () => {
 
   // CONTACT LIST TABLE
   const columns = [
-    { id: 'name', label: 'Name', minWidth: 170 },
+    { id: 'name', label: 'Name', minWidth: 100 },
     { id: 'email', label: 'Email', minWidth: 100, align: 'center', padding: 'none' },
+    { id: 'gender', label: 'Gender', minWidth: 100, align: 'center', padding: 'none' },
     { id: 'action', label: 'Action', align: 'center', padding: 'none' }
   ];
   
