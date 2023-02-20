@@ -1,8 +1,9 @@
 import BackButton from './BackButton'
 import Button from '@mui/material/Button'
 import Grid from '@mui/material/Grid'
+import AddContact from './modals/AddContact'
 
-const FloatingButtons = () => {
+const FloatingButtons = ({ submitRequest, addContact }) => {
   const style = { 
     display: 'flex',
     flexDirection: 'column',
@@ -17,9 +18,8 @@ const FloatingButtons = () => {
 
   return (
     <Grid item sx={style} >
-      <Button variant="contained" color="primary" type='submit' sx={{p: 1.5}}>
-        Send Request
-      </Button>
+      {submitRequest && <Button variant="contained" color="primary" type='submit' sx={{p: 1.5}}>Send Request</Button>}
+      {addContact && <AddContact />}
       <BackButton style={{m: 1, p: 1}} />
     </Grid>
   )

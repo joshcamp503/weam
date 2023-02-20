@@ -101,7 +101,7 @@ const SubRequestForm = () => {
               Contacts:
             </Typography>
             <CheckboxList id="invite" />
-            <FloatingButtons />
+            <FloatingButtons submitRequest={true}/>
             
           </Stack>
           <SuccessModal open={modalOpen} setOpen={setModalOpen} />

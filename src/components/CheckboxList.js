@@ -15,6 +15,7 @@ const CheckboxList = () => {
   const columns = [
     { id: 'name', label: 'Name', minWidth: 170 },
     { id: 'email', label: 'Email', minWidth: 100, align: 'center', padding: 'none' },
+    { id: 'gender', label: 'Gender', minWidth: 100, align: 'center', padding: 'none' },
     { id: 'invite', label: 'Invite?', align: 'center', padding: 'none' }
   ];
   

@@ -7,8 +7,9 @@ import Grid from "@mui/material/Grid"
 import Paper from "@mui/material/Paper"
 import Stack from "@mui/material/Stack"
 import Typography from "@mui/material/Typography"
-import BackButton from '../../components/BackButton'
 import EditName from '../../components/modals/EditName'
+import FloatingButtons from '../../components/FloatingButtons'
+import AddContact from '../../components/modals/AddContact'
 
 
 const Profile = () => {
@@ -33,7 +34,7 @@ const Profile = () => {
         alignItems='center'
         justifyContent='center'
       >
-        <Grid item xs={10} sm={10} md={10} lg={8}>
+        <Grid item xs={10} sm={10} md={10} lg={8} sx={{ mb: '200px' }}>
           <Paper elevation={3} sx={{ p: 3, pt: 5 }}>
             <Grid container justifyContent='center'spacing={2}>
 
@@ -56,8 +57,9 @@ const Profile = () => {
                   <Typography textAlign='left' gutterBottom>
                     Contacts
                   </Typography>
-
-                  <ContactList />                  
+                  <Box sx={{ textAlign: 'left', m: 3, display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
+                    <ContactList />
+                  </Box>            
                 </Box>
               </Grid>
 
@@ -66,7 +68,7 @@ const Profile = () => {
         </Grid>
       </Grid>
 
-      <BackButton />
+      <FloatingButtons addContact={true} />
 
     </Stack>
   )

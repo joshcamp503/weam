@@ -56,16 +56,14 @@ const AddContact = () => {
 
   return (
     <div>
-      <Fab 
-        component='button' 
-        size="small" 
+      <Button 
+        variant="contained" 
         color="primary" 
-        onClick={handleClickOpen}
-        aria-label="add"
-        sx={{ mt: 3, position: 'relative', left: '50%' }} 
-      >
-        <AddIcon />
-      </Fab>
+        onClick={handleClickOpen} 
+        sx={{p: 1.5}}
+        >
+        Send Request
+      </Button>
       <Dialog open={open} onClose={handleClose} fullWidth>
         <form noValidate autoComplete='off' onSubmit={formik.handleSubmit}>
           <DialogTitle sx={{ m: 2 }}>Add new contact</DialogTitle>

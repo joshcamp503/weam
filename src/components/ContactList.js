@@ -1,6 +1,5 @@
 // REACT
 import * as React from 'react';
-import AddContact from './modals/AddContact';
 import ProfileActions from './ProfileActions'
 // MUI
 import Paper from '@mui/material/Paper';
@@ -87,7 +86,6 @@ const ContactList = () => {
         /> */}
     </Paper>
 
-    <AddContact />
     
     </>
   );
