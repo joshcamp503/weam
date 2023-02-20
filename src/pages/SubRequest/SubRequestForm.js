@@ -1,7 +1,7 @@
 // REACT
 import { useState } from 'react'
 import { useSubRequest } from '../../hooks/useSubRequest'
-import CheckboxList from '../../components/CheckboxList'
+import ContactList from '../../components/ContactList'
 import SuccessModal from '../../components/modals/SuccessModal'
 // MUI
 import Box from '@mui/material/Box'
@@ -100,7 +100,7 @@ const SubRequestForm = () => {
             >
               Contacts:
             </Typography>
-            <CheckboxList id="invite" />
+            <ContactList id="invite" action={"invite"} />
             <FloatingButtons submitRequest={true}/>
             
           </Stack>
