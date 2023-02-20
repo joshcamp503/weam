@@ -24,7 +24,7 @@ const SubRequest = () => {
       {/* Card */}
       <Grid container alignItems='center' justifyContent='center' sx={{ mb: '200px'}}>
 
-        <Grid item xs={10} sm={10} md={10} lg={8}>
+        <Grid item xs={12} md={10} lg={8}>
           <Paper elevation={3} sx={{ py: 6 }}>
             <Grid container alignItems='center' justifyContent='center'>
 

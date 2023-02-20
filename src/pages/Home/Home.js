@@ -33,9 +33,9 @@ const Home = () => {
       </Typography>
 
       {/* CARD */}
-      <Grid container alignItems='center' justifyContent='center' sx={{ mt: 0, px: 6, py: 0 }}>
+      <Grid container alignItems='center' justifyContent='center'>
 
-        <Grid item xs={10} sm={8} md={6} lg={4}>
+        <Grid item xs={12} sm={10} md={6} lg={5}>
           <Paper elevation={3} sx={{ py: 12 }}>
             <Grid container alignItems='center' justifyContent='center'>
 

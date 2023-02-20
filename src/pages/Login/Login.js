@@ -59,7 +59,7 @@ const Login = () => {
 
       <Grid container alignItems='center' justifyContent='center' sx={{  }}>
 
-        <Grid item xs={10} sm={8} md={6} lg={4}>
+        <Grid item xs={12} sm={9} md={7} lg={5}>
           <Paper elevation={3} sx={{ py: 6 }}>
             <Grid container alignItems='center' justifyContent='center'>
 

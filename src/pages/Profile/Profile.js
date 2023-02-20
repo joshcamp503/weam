@@ -33,7 +33,7 @@ const Profile = () => {
         alignItems='center'
         justifyContent='center'
       >
-        <Grid item xs={10} sm={10} md={10} lg={8}>
+        <Grid item xs={12} md={10} lg={8}>
           <Paper elevation={3} sx={{ p: 3, pt: 5 }}>
             <Grid container justifyContent='center'spacing={2}>
 

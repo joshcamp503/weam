@@ -20,7 +20,7 @@ const FloatingButtons = ({ submitRequest, addContact }) => {
 
   return (
     <Grid item sx={style} >
-      {submitRequest && <Button variant="contained" color="primary" type='submit' sx={{p: 1.5}}>Send Request</Button>}
+      {submitRequest && <Button variant="contained" color="primary" type='submit' sx={{ p: 1.5} }>Send Request</Button>}
       {addContact && <AddContact />}
       <BackButton style={{m: 1, p: 1}} />
     </Grid>
