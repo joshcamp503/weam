@@ -75,8 +75,8 @@ const SubRequestForm = () => {
     >
       <Form>
           <Stack spacing={1}>
-            <MyTextInput label="For What?" name="event" id="event"/>
-            <MyTextInput label="Where?" name="location" id="location"/>
+            <MyTextInput label="For What?" name="event" id="event" variant="outlined" />
+            <MyTextInput label="Where?" name="location" id="location" variant="outlined" />
             <MyDatePicker label="Which day?" name="date" id="date" />
             <MyTimePicker label="What time?" name="time" id="time" />
             <Box>

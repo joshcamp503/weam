@@ -41,9 +41,6 @@ const ContactList = ({ action }) => {
     { id: 'gender', label: 'Gender', minWidth: 100, align: 'center', padding: 'none' },
     createActionColumn()
   ];
-
-
-  
   
   // GET USER DATA FROM LOCAL STORAGE AND POPULATE TABLE, SORTED ALPHABETICALLY BY NAME
   const { contacts } = JSON.parse(localStorage.getItem('user'))
