@@ -9,6 +9,7 @@ Bugs:
 Current: 
 
   Sub Request Form: 
+  Add error/errorText to MyRadioGroup.js (already validated by yup, but not throwing error messages)
   Change ContactList font for mobile in Profile.js and SubRequest.js
   Add male/female to contacts in userDoc, contact list, checkboxlist, and subRequest doc
   Set up email functionality
