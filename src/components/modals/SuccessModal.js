@@ -18,7 +18,7 @@ const SuccessModal = ({ open, setOpen }) => {
 
   return (
     <div>
-      <Dialog open={true} onClose={handleClose} fullWidth >
+      <Dialog open={open} onClose={handleClose} fullWidth >
           <DialogTitle sx={{ fontSize: '3em', textAlign: 'center' }}>Success!</DialogTitle>
           <DialogContent sx={{ textAlign: 'center' }}>
             <Typography

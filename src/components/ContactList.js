@@ -14,17 +14,15 @@ import TableRow from '@mui/material/TableRow';
 
 const ContactList = () => {
   // PAGINATION
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
-
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(parseInt(event.target.value, 10));
-    setPage(0);
-  };
+  // const [page, setPage] = React.useState(0);
+  // const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  // const handleChangePage = (event, newPage) => {
+  //   setPage(newPage);
+  // };
+  // const handleChangeRowsPerPage = (event) => {
+  //   setRowsPerPage(parseInt(event.target.value, 10));
+  //   setPage(0);
+  // };
 
   // CONTACT LIST TABLE
   const columns = [
@@ -57,7 +55,7 @@ const ContactList = () => {
           </TableHead>
           <TableBody>
             {contacts
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              // .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((contact) => {
                 return (
                   <TableRow hover role="checkbox" tabIndex={-1} key={contact.name} >
@@ -78,7 +76,7 @@ const ContactList = () => {
           </TableBody>
         </Table>
       </TableContainer>
-      <TablePagination
+      {/* <TablePagination
           rowsPerPageOptions={[5, 10, 25]}
           component="div"
           count={contacts.length}
@@ -86,7 +84,7 @@ const ContactList = () => {
           page={page}
           onPageChange={handleChangePage}
           onRowsPerPageChange={handleChangeRowsPerPage}
-        />
+        /> */}
     </Paper>
 
     <AddContact />
