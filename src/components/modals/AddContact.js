@@ -60,9 +60,9 @@ const AddContact = () => {
         variant="contained" 
         color="primary" 
         onClick={handleClickOpen} 
-        sx={{p: 1.5}}
+        sx={{ px: 3, py: 1.5 }}
         >
-        Send Request
+        Add Contact
       </Button>
       <Dialog open={open} onClose={handleClose} fullWidth>
         <form noValidate autoComplete='off' onSubmit={formik.handleSubmit}>

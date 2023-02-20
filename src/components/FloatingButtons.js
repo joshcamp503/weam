@@ -16,6 +16,8 @@ const FloatingButtons = ({ submitRequest, addContact }) => {
     maxWidth: '60%'
   }
 
+  console.log(submitRequest, addContact)
+
   return (
     <Grid item sx={style} >
       {submitRequest && <Button variant="contained" color="primary" type='submit' sx={{p: 1.5}}>Send Request</Button>}
