@@ -25,22 +25,20 @@ const ContactList = ({ action }) => {
   // };
 
   // CONTACT LIST TABLE
-  const createActionColumn = () => {
+  const createColumns = () => {
+    const nameCol = { id: 'name', label: 'Name', minWidth: 170 }
+    const emailCol = { id: 'email', label: 'Email', minWidth: 100, align: 'center', padding: 'none' }
+    const genderCol = { id: 'gender', label: 'Gender', minWidth: 100, align: 'center', padding: 'none' }
     const inviteCol = { id: 'invite', label: 'Invite?', align: 'center', padding: 'none' }
     const actionCol = { id: 'action', label: 'Action', align: 'center', padding: 'none' }
-    if(action === "invite") {
-      return inviteCol
+    if (action === 'invite') {
+      return [nameCol, genderCol, inviteCol]
     } else {
-      return actionCol
+      return [nameCol, emailCol, genderCol, actionCol]
     }
   }
 
-  const columns = [
-    { id: 'name', label: 'Name', minWidth: 170 },
-    { id: 'email', label: 'Email', minWidth: 100, align: 'center', padding: 'none' },
-    { id: 'gender', label: 'Gender', minWidth: 100, align: 'center', padding: 'none' },
-    createActionColumn()
-  ];
+  const columns = createColumns()
   
   // GET USER DATA FROM LOCAL STORAGE AND POPULATE TABLE, SORTED ALPHABETICALLY BY NAME
   const { contacts } = JSON.parse(localStorage.getItem('user'))
@@ -51,7 +49,14 @@ const ContactList = ({ action }) => {
     <Paper sx={{ width: '100%', overflow: 'hidden', mb: '200px' }}>
       <TableContainer >
         <Table stickyHeader aria-label="sticky table">
-          <TableHead>
+          <TableHead 
+            sx={{
+              fontSize: {
+                xs: '.5rem',
+                md: '1rem'
+              }
+            }}
+          >
             <TableRow>
               {columns.map((column) => (
                 <TableCell
