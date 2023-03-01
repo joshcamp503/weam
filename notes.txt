@@ -8,13 +8,15 @@ Bugs:
 
 Current: 
 
+  ContactList:
+  Make table an Accordion so overflow-able data can be hidden in mobile
+
   Sub Request Form: 
   Add error/errorText to MyRadioGroup.js (already validated by yup, but not throwing error messages) -> formik, useField?
   Change ContactList font for mobile in Profile.js and SubRequest.js
   Add male/female to contacts in userDoc, contact list, checkboxlist, and subRequest doc
   Set up email functionality
-       
-      
+
 
   AUTH stuff:
   **Firebase auth password reset & email verify expire after x amount of time... no need to handle expiration of auth requests

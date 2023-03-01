@@ -49,14 +49,7 @@ const ContactList = ({ action }) => {
     <Paper sx={{ width: '100%', overflow: 'hidden', mb: '200px' }}>
       <TableContainer >
         <Table stickyHeader aria-label="sticky table">
-          <TableHead 
-            sx={{
-              fontSize: {
-                xs: '.5rem',
-                md: '1rem'
-              }
-            }}
-          >
+          <TableHead >
             <TableRow>
               {columns.map((column) => (
                 <TableCell
