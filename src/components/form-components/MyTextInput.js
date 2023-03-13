@@ -8,7 +8,6 @@ const MyTextInput = ({ label, ...props }) => {
       <TextField
         label={label}
         id={props.id}
-        variant='outlined'
         required
         fullWidth
         {...field}

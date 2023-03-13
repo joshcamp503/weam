@@ -49,8 +49,8 @@ const AddContact = () => {
           .required("Gender is required")
       })}
       onSubmit = {(values, actions) => {
-        // addContact(userData.id, values)
-        console.log(values)
+        addContact(userData.id, values)
+        // console.log(values)
         actions.resetForm()
         setOpen(false)
       }}
@@ -67,10 +67,10 @@ const AddContact = () => {
         <Dialog open={open} onClose={handleClose} fullWidth>
           <Form >
             <DialogTitle sx={{ m: 2 }}>Add new contact</DialogTitle>
-            <DialogContent  >
+            <DialogContent sx={{ paddingBottom: '0' }}>
               <MyTextInput label="Contact name" name="name" id="name" variant="standard" sx={{ my: 2 }} />
               <MyTextInput label="Email" name="email" id="email" variant="standard" sx={{ my: 2 }} />
-              <MyRadioGroup />
+              <MyRadioGroup id="gender" name="gender"/>
             </DialogContent>
             <DialogActions sx={{ m: 2 }}>
               <Button onClick={handleClose}>Cancel</Button>

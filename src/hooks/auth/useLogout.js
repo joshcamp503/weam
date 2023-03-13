@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 // FIREBASE IMPORTS
 import { auth } from '../../firebase/config'
 import { signOut } from 'firebase/auth'

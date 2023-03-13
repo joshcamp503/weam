@@ -1,10 +1,14 @@
 import Typography from "@mui/material/Typography"
 import RadioGroup from "@mui/material/RadioGroup"
-import { Field } from "formik"
+import { Field, useField } from "formik"
+import { useState } from "react"
 
-const MyRadioGroup = () => {
+const MyRadioGroup = ({ ...props }) => {
+  const [field, meta] = useField(props)
+  const [error, setError] = useState(null)
 
   return (
+    <>
     <div style={{ display: 'flex', flexFlow: 'row wrap', justifyContent: 'space-between', paddingRight: '1em'}}>
       <Typography 
         variant="h6"
@@ -14,10 +18,10 @@ const MyRadioGroup = () => {
         Gender:
       </Typography>
       <RadioGroup 
-        role="group" 
-        id="gender"
         aria-labelledby="gender-radio-group"
-        style={{ display: 'flex', flexFlow: 'row wrap', alignItems: 'end' }}
+        sx={{ display: 'flex', flexFlow: 'row wrap', alignItems: 'end' }}
+        {...props}
+        {...field}
       >
         <Typography 
           variant="p"
@@ -39,6 +43,10 @@ const MyRadioGroup = () => {
         </Typography>
       </RadioGroup>
     </div>
+    {(meta.touched && meta.error) &&
+      <div style={{ color: 'red', fontStyle: 'italic', paddingRight: '2em', textAlign: 'right' }}><small>Gender is required</small></div>
+    }
+    </>
   )
 }
 export default MyRadioGroup
