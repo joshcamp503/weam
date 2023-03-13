@@ -1,7 +1,9 @@
 import Typography from "@mui/material/Typography"
+import RadioGroup from "@mui/material/RadioGroup"
 import { Field } from "formik"
 
 const MyRadioGroup = () => {
+
   return (
     <div style={{ display: 'flex', flexFlow: 'row wrap', justifyContent: 'space-between', paddingRight: '1em'}}>
       <Typography 
@@ -11,10 +13,10 @@ const MyRadioGroup = () => {
       >
         Gender:
       </Typography>
-      <div 
+      <RadioGroup 
         role="group" 
-        id="genderRadioGroup" 
-        aria-labelledby="gender-radio-group" 
+        id="gender"
+        aria-labelledby="gender-radio-group"
         style={{ display: 'flex', flexFlow: 'row wrap', alignItems: 'end' }}
       >
         <Typography 
@@ -23,7 +25,7 @@ const MyRadioGroup = () => {
           component="label" 
           sx= {{ mx: '1em'}}
         >
-          <Field type="radio" name="gender" value="M" />
+          <Field type="radio" name="gender" id="genderMale" value="M" />
           Male
         </Typography>
         <Typography 
@@ -32,10 +34,10 @@ const MyRadioGroup = () => {
           component="label" 
           sx= {{ mx: '1em'}}
         >
-          <Field type="radio" name="gender" value="F" />
+          <Field type="radio" name="gender" id="genderFemale" value="F" />
           Female
         </Typography>
-      </div>
+      </RadioGroup>
     </div>
   )
 }

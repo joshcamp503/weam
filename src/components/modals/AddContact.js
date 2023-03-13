@@ -14,10 +14,10 @@ import MyRadioGroup from '../form-components/MyRadioGroup';
 
 
 const AddContact = () => {
+  const [open, setOpen] = useState(false);
   const userData = JSON.parse(localStorage.getItem('user'))
   const { addContact } = useProfile()
   const formikRef = useRef()
-  const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
