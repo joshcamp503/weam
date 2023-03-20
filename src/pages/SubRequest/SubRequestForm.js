@@ -75,7 +75,7 @@ const SubRequestForm = () => {
     >
       <Form>
           <Stack spacing={1}>
-            <Stack spacing={1} justifyContent="center" sx={{ mx: 'auto', width: 'clamp(300px, 100%, 400px)'}}>
+            <Stack spacing={1} justifyContent="center" sx={{ mx: 'auto', width: 'clamp(280px, 100%, 400px)'}}>
               <MyTextInput label="For What?" name="event" id="event" variant="outlined" />
               <MyTextInput label="Where?" name="location" id="location" variant="outlined" />
               <MyDatePicker label="Which day?" name="date" id="date" />

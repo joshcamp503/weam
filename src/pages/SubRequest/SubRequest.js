@@ -22,14 +22,14 @@ const SubRequest = () => {
       </Typography>
 
       {/* Card */}
-      <Grid container alignItems='center' justifyContent='center' sx={{ mb: '200px'}}>
+      <Grid container xs={12} alignItems='center' justifyContent='center' sx={{ mb: '200px'}}>
 
         <Grid item xs={12} md={10} lg={8}>
           <Paper elevation={3} sx={{ py: 6 }}>
-            <Grid container alignItems='center' justifyContent='center'>
+            <Grid container xs={12} alignItems='center' justifyContent='center'>
 
               {/* Input Fields */}
-              <Grid item xs={10}>
+              <Grid item xs={12}>
                 <SubRequestForm />
               </Grid>
 

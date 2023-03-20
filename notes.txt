@@ -29,9 +29,6 @@ Current:
 
   Contacts:
     Change pagination to react-window evnetually
-
-  Sub request form:
-    send confirmation after submission
   
 
 Up next:
