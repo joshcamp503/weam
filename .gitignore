@@ -5,6 +5,10 @@
 /.pnp
 .pnp.js
 /src/firebase/
+.firebaserc
+firebase.json
+firestore.indexes.json
+firestore.rules
 
 # testing
 /coverage
