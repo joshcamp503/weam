@@ -12,7 +12,7 @@ export const useSubRequest = () => {
     values.ts = Date.now()
     const formattedValues = formatValues(values)
     const docRef = doc(collection(firestore, 'subRequests'))
-    console.log(formattedValues)
+    // console.log(formattedValues)
     try {
       await setDoc(docRef, formattedValues)
     }
