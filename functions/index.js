@@ -26,24 +26,21 @@ exports.sendSubRequest = functions.firestore.document("/subRequests/{id}")
     .onCreate((snap, context) => {
       console.log(snap.data());
 
-      // const collection = "subRequests";
-      // const id = context.params.id;
-      const dest = "joshcampdev@gmail.com";
+      const inviteList = snap.data().invite;
 
-      const mailOptions = {
-        from: "Weam <joshcampdev@gmail.com>",
-        to: dest,
-        subject: "You've been invited to a game!",
-        html: "<p>You've been invited to a game!</>",
-      };
-      // returning result
-      return transporter.sendMail(mailOptions, (error, info, response) => {
-        if (error) {
-          return response.send(error.toString());
-        }
-        return response.send("Sent");
+      inviteList.forEach((contact) => {
+        const mailOptions = {
+          from: "Weam <joshcampdev@gmail.com>",
+          to: contact,
+          subject: "You've been invited to a game!",
+          html: "<p>You've been invited to a game!</>",
+        };
+        // returning result
+        return transporter.sendMail(mailOptions, (error, info, response) => {
+          if (error) {
+            return response.send(error.toString());
+          }
+          return response.send("Sent");
+        });
       });
-      // const activities = admin.firestore().collection("activities");
-
-      // return activities.add({text: "a new sub request was created"});
     });
