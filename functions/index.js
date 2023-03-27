@@ -20,13 +20,7 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
   response.send("Hello from Firebase!");
 });
 
-const emailHTML = fs.readFile("./invite.txt", "utf8", (err, data) => {
-  if (err) {
-    console.log(err);
-    return;
-  }
-  return data;
-});
+const emailHTML = fs.readFileSync("./invite.html");
 
 exports.sendSubRequest = functions.firestore.document("/subRequests/{id}")
     .onCreate((snap, context) => {
