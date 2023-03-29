@@ -15,11 +15,6 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-exports.helloWorld = functions.https.onRequest((request, response) => {
-  functions.logger.info("Hello logs!", {structuredData: true});
-  response.send("Hello from Firebase!");
-});
-
 const emailHTML = fs.readFileSync("./invite.html");
 
 exports.sendSubRequest = functions.firestore.document("/subRequests/{id}")
