@@ -34,49 +34,33 @@ const Home = () => {
 
       {/* CARD */}
       <Grid container alignItems='center' justifyContent='center'>
-
-        <Grid item xs={12} sm={10} md={6} lg={5}>
-          <Paper elevation={3} sx={{ py: 12 }}>
-            <Grid container alignItems='center' justifyContent='center'>
-
-              <Grid item xs={12}>
-                {user ? 
-                  <Button component={NavLink} to="/sub-request" sx={btn} variant="contained" size="large">Find Subs</Button> 
-                  :              
-                  <Typography 
-                    variant="p" 
-                    color="initial" 
-                    component="p" 
-                    gutterBottom
-                    sx={{mb: 12}}
-                  >
-                    {aboutText}
-                  </Typography>
-                }
-              </Grid>
-              <Grid item xs={12}>
-                {!user && <Button component={NavLink} to="/login" sx={btn} variant="contained" size="large">Log In</Button>}
-              </Grid>
-              <Grid item xs={12}>
-                {!user && <Button component={NavLink} to="/signup" sx={btn} variant="contained" size="large">Sign Up</Button>}
-              </Grid>
-              {/* <Grid item xs={12}>
-                {user && <Button component={NavLink} to="/" sx={btn} variant="contained" size="large">Add Contacts</Button>}
-              </Grid> */}
-              <Grid item xs={12}>
-                {user && <Button component={NavLink} to="/profile" sx={btn} variant="contained" size="large">View Profile</Button>}
-              </Grid>
-              <Grid item xs={12}>
-                {user && <Button onClick={logout} sx={btn} variant="contained" size="large">Log Out</Button>}
-              </Grid>
-              {/* <Grid item xs={12}>
-                <button onClick={() => { console.log(userData) }}>Check state</button>
-              </Grid> */}
-
-            </Grid>
-          </Paper>
+        <Grid item xs={12}>
+          {user ? 
+            <Button component={NavLink} to="/sub-request" sx={btn} variant="contained" size="large">Find Subs</Button> 
+            :              
+            <Typography 
+              variant="p" 
+              color="initial" 
+              component="p" 
+              gutterBottom
+              sx={{mb: 12}}
+            >
+              {aboutText}
+            </Typography>
+          }
         </Grid>
-
+        <Grid item xs={12}>
+          {!user && <Button component={NavLink} to="/login" sx={btn} variant="contained" size="large">Log In</Button>}
+        </Grid>
+        <Grid item xs={12}>
+          {!user && <Button component={NavLink} to="/signup" sx={btn} variant="contained" size="large">Sign Up</Button>}
+        </Grid>
+        <Grid item xs={12}>
+          {user && <Button component={NavLink} to="/profile" sx={btn} variant="contained" size="large">View Profile</Button>}
+        </Grid>
+        <Grid item xs={12}>
+          {user && <Button onClick={logout} sx={btn} variant="contained" size="large">Log Out</Button>}
+        </Grid>
       </Grid>
     </Stack>
   )
