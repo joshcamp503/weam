@@ -6,7 +6,8 @@
     "serve": "firebase emulators:start --only functions",
     "shell": "firebase functions:shell",
     "start": "npm run shell",
-    "deploy": "firebase deploy --only functions",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "logs": "firebase functions:log"
   },
   "engines": {
