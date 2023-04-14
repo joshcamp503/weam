@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/weam/static/css/main.f12d37df.css",
-    "main.js": "/weam/static/js/main.e636a6d9.js",
+    "main.js": "/weam/static/js/main.b82e63ef.js",
     "index.html": "/weam/index.html",
     "main.f12d37df.css.map": "/weam/static/css/main.f12d37df.css.map",
-    "main.e636a6d9.js.map": "/weam/static/js/main.e636a6d9.js.map"
+    "main.b82e63ef.js.map": "/weam/static/js/main.b82e63ef.js.map"
   },
   "entrypoints": [
     "static/css/main.f12d37df.css",
-    "static/js/main.e636a6d9.js"
+    "static/js/main.b82e63ef.js"
   ]
 }
