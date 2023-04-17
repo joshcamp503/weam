@@ -20,11 +20,11 @@ function App() {
   const { theme } = useTheme()
   
   return (
-    <Grid className="App" container justifyContent='center' >
+    <Grid className="App" container backgroundColor='#EFEFEF' justifyContent='center' height={'100%'}>
       <Grid item xs={12} xl={10} >
         {authIsReady && (
         <ThemeProvider theme={theme}>
-          <BrowserRouter>
+          <BrowserRouter basename="/weam">
             <FadeMenu />
             <Routes>
               <Route path="/" element={<Home />} />

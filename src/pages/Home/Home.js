@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography'
 import { NavLink } from 'react-router-dom';
 import { useAuthContext } from '../../hooks/auth/useAuthContext'
 import { useLogout } from '../../hooks/auth/useLogout';
+import Box from '@mui/material/Box';
 
 const btn = [{
   mx: 'auto',
@@ -17,10 +18,9 @@ const Home = () => {
   const { user } = useAuthContext()
   const { logout } = useLogout()
 
-  const aboutText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-
+  const aboutText = "Connect with players. Find subs. Play ball."
   return (
-    <Stack>
+    <Stack height={'100%'}>
       {/* TITLE */}
       <Typography 
         variant="h4" 
@@ -29,32 +29,29 @@ const Home = () => {
         gutterBottom
         sx={{mt: 12, mb: 4}}
       >
-        {user ? 'DASHBOARD' : 'ABOUT'}
+        {user && 'DASHBOARD' }
       </Typography>
 
       {/* CARD */}
-      <Grid container alignItems='center' justifyContent='center'>
+      <Grid container alignItems='center' justifyContent='center' marginTop={'15%'}>
         <Grid item xs={12}>
           {user ? 
             <Button component={NavLink} to="/sub-request" sx={btn} variant="contained" size="large">Find Subs</Button> 
             :              
-            <Typography 
-              variant="p" 
-              color="initial" 
-              component="p" 
-              gutterBottom
-              sx={{mb: 12}}
-            >
-              {aboutText}
-            </Typography>
+            <Box display={'flex'} justifyContent={'center'} gap={'1em'} marginBottom={'1em'}>
+              <Typography color="initial" >Connect with players.</Typography>
+              <Typography color="initial" >Find subs.</Typography>
+              <Typography color="initial" >Play ball.</Typography>
+            </Box>
           }
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} lg={2} display={'flex'} >
           {!user && <Button component={NavLink} to="/login" sx={btn} variant="contained" size="large">Log In</Button>}
-        </Grid>
-        <Grid item xs={12}>
           {!user && <Button component={NavLink} to="/signup" sx={btn} variant="contained" size="large">Sign Up</Button>}
         </Grid>
+        {/* <Grid item xs={12}>
+          {!user && <Button component={NavLink} to="/signup" sx={btn} variant="contained" size="large">Sign Up</Button>}
+        </Grid> */}
         <Grid item xs={12}>
           {user && <Button component={NavLink} to="/profile" sx={btn} variant="contained" size="large">View Profile</Button>}
         </Grid>
