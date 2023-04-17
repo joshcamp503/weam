@@ -57,10 +57,10 @@ const Login = () => {
         LOG IN
       </Typography>
 
-      <Grid container alignItems='center' justifyContent='center' sx={{  }}>
+      <Grid container alignItems='center' justifyContent='center'>
 
         <Grid item xs={12} sm={9} md={7} lg={5}>
-          <Paper elevation={3} sx={{ py: 6 }}>
+          <Paper elevation={3} sx={{ backgroundColor: '#fffffe', py: 6 }}>
             <Grid container alignItems='center' justifyContent='center'>
 
               <Grid item xs={8}>

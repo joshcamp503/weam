@@ -23,6 +23,7 @@ export const useTheme = () => {
       MuiLink: {
         styleOverrides: {
           root: {
+            color: '#555555',
             fontFamily: '"Permanent Marker", "cursive"',
             textDecoration: 'none'
           }
