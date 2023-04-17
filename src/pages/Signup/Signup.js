@@ -57,7 +57,7 @@ const Signup = () => {
   })
 
   return (
-    <Stack>
+    <Stack sx={{ marginTop: '5%'}}>
 
       <Typography 
         variant="h4" 

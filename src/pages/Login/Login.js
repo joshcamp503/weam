@@ -45,7 +45,7 @@ const Login = () => {
 
 
   return (
-    <Stack>
+    <Stack sx={{ marginTop: '10%'}}>
 
       <Typography 
         variant="h4" 
