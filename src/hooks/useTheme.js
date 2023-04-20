@@ -36,6 +36,13 @@ export const useTheme = () => {
           }
         }
       },
+      MuiPaper: {
+        styleOverrides: {
+          root: {
+            borderRadius: '12px'
+          }
+        }
+      },
       MuiTableCell: {
         styleOverrides: {
           root: {
