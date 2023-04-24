@@ -16,7 +16,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const source = fs.readFileSync("./invite.html");
+const source = fs.readFileSync("./invite.html", "utf-8");
 const template = Handlebars.compile(source);
 
 exports.sendSubRequest = functions.firestore.document("/subRequests/{id}")
