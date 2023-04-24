@@ -44,5 +44,5 @@ exports.sendSubRequest = functions.firestore.document("/subRequests/{id}")
         });
       };
 
-      sendEmail(inviteList, snap.data().creator);
+      sendEmail(inviteList, {name: snap.data().creator});
     });
