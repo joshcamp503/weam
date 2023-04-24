@@ -2,6 +2,7 @@ const nodemailer = require("nodemailer");
 const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 const fs = require("fs");
+const Handlebars = require("handlebars");
 admin.initializeApp();
 
 // // Create and deploy your first functions
@@ -15,28 +16,33 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const emailHTML = fs.readFileSync("./invite.html");
+const source = fs.readFileSync("./invite.html");
+const template = Handlebars.compile(source);
 
 exports.sendSubRequest = functions.firestore.document("/subRequests/{id}")
     .onCreate((snap, context) => {
       console.log(snap.data());
-      console.log(emailHTML);
+      console.log(source);
 
       const inviteList = snap.data().invite;
 
-      inviteList.forEach((contact) => {
-        const mailOptions = {
-          from: "Weam <joshcampdev@gmail.com>",
-          to: contact,
-          subject: "You've been invited to a game!",
-          html: emailHTML,
-        };
-        // returning result
-        return transporter.sendMail(mailOptions, (error, info, response) => {
-          if (error) {
-            return response.send(error.toString());
-          }
-          return response.send("Sent");
+      const sendEmail = (contacts, locals) => {
+        contacts.forEach((contact) => {
+          const mailOptions = {
+            from: "Weam <joshcampdev@gmail.com>",
+            to: contact,
+            subject: "You've been invited to a game!",
+            html: template(locals),
+          };
+          // returning result
+          return transporter.sendMail(mailOptions, (error, info, response) => {
+            if (error) {
+              return response.send(error.toString());
+            }
+            return response.send("Sent");
+          });
         });
-      });
+      };
+
+      sendEmail(inviteList, snap.data().creator);
     });
