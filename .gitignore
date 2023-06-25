@@ -23,7 +23,7 @@ firestore.rules
 .env.test.local
 .env.production.local
 .vscode
-notes.txt
+/notes.txt
 
 npm-debug.log*
 yarn-debug.log*
