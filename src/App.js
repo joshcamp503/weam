@@ -14,18 +14,20 @@ import { useTheme } from './hooks/useTheme';
 // MUI
 import Grid from '@mui/material/Grid'
 import { ThemeProvider } from '@mui/material';
+// MEDIA
+import MainBgImage from './assets/main-bg-image.png'
 
 function App() {
   const { user, authIsReady } = useAuthContext()
   const { theme } = useTheme()
   
   return (
-    <Grid className="App" container backgroundColor='#EFEFEF' justifyContent='center' height={'100%'}>
+    <Grid className="App" container sx={{ justifyContent: 'center', height: '100%', backgroundImage: `url(${MainBgImage})`, backgroundSize: 'cover', backgroundPosition: '50% 45%' }}>
       <Grid item xs={12} xl={10} >
         {authIsReady && (
         <ThemeProvider theme={theme}>
           <BrowserRouter basename="/weam">
-            <FadeMenu />
+            {/* <FadeMenu />z */}
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/sub-request" element={<SubRequest />} />

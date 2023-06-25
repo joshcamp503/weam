@@ -4,6 +4,15 @@ Command to google cloud functions:
 
   firebase deploy --only functions
 
+
+API Restriction info:
+
+Google Cloud > APIs & Services > Credentials > API Keys (Browser key)
+  *under "Set an application restriction" change between IP Addresses (local dev) and Websites (prod)
+  *For local dev, restrict to "IP addresses", add dev computer's public IP address
+  *For PROD, restrict to "Websites", add https://joshcamp.dev AND add https://weam-a7b1a.firebaseapp.com, otherwise email verification wont work
+
+
 **PhoneRegExp
 const phoneRegExp = /^\(?[0-9]{3}\)?\s?-?\.?\s?[0-9]{3}\s?-?\.?\s?[0-9]{4}$/g
 

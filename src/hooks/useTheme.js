@@ -6,17 +6,28 @@ export const useTheme = () => {
 
   const theme = createTheme({
     palette: {
-      primary: lightBlue,
+      primary: { main: '#03A9F4' },
       secondary: orange,
     },
     typography: {
-      fontFamily: '"Permanent Marker", "cursive"',
+      // fontFamily: '"Permanent Marker", "cursive"',
+      fontFamily: '"Roboto", "sans-serif"',
+      fontSize: '20px'
     },
     components: {
       MuiInputBase: {
         styleOverrides: {
           input: {
             fontFamily: '"Roboto","Helvetica","Arial",sans-serif;'
+          }
+        }
+      },
+      MuiButton: {
+        styleOverrides: {
+          root: {
+            borderRadius: '8px',
+            fontWeight: 'bold',
+            textTransform: 'capitalize'
           }
         }
       },
