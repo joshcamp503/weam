@@ -4,10 +4,8 @@ import AuthErrorMessage from '../../components/AuthErrorMessage'
 // MUI
 import Button from '@mui/material/Button'
 import Grid from '@mui/material/Grid'
-import Paper from '@mui/material/Paper'
 import Stack from '@mui/material/Stack'
 import TextField from '@mui/material/TextField'
-import Typography from '@mui/material/Typography'
 // AUTH
 import { useLogin } from '../../hooks/auth/useLogin'
 // FORMS
@@ -43,27 +41,12 @@ const Login = () => {
     validationSchema
   })
 
-
   return (
-    <Stack sx={{ marginTop: '10%'}}>
-
-      <Typography 
-        variant="h4" 
-        color="initial" 
-        component="h2" 
-        gutterBottom
-        sx={{m: 4}}
-      >
-        LOG IN
-      </Typography>
-
-      <Grid container alignItems='center' justifyContent='center'>
-
-        <Grid item xs={12} sm={9} md={7} lg={5}>
-          <Paper elevation={3} sx={{ backgroundColor: '#fffffe', py: 6 }}>
-            <Grid container alignItems='center' justifyContent='center'>
-
-              <Grid item xs={8}>
+    <Stack textAlign="center" >
+      <Grid container flexDirection="column" alignItems='center' justifyContent='center' >
+        <Grid item xs={12} sm={9} md={7} lg={4} >
+            <Grid container direction="column" alignItems='center' justifyContent='center'>
+              <Grid item width="320px" >
                 <form noValidate autoComplete='off' onSubmit={formik.handleSubmit}>
                     <TextField
                       label='Email'
@@ -72,7 +55,7 @@ const Login = () => {
                       variant='outlined'
                       required
                       fullWidth
-                      sx={{ my: '10px' }}
+                      sx={{ my: '6px' }}
                       {...formik.getFieldProps('email')}
                       error={formik.touched.email && Boolean(formik.errors.email)}
                       helperText={formik.touched.email && formik.errors.email}
@@ -84,13 +67,12 @@ const Login = () => {
                       variant='outlined'
                       required
                       fullWidth
-                      sx={{ my: '10px' }}
                       {...formik.getFieldProps('password')}
                       error={formik.touched.password && Boolean(formik.errors.password)}
                       helperText={formik.touched.password && formik.errors.password}
                     />
                     <Button 
-                      sx={{ my: '10px' }}
+                      sx={{ my: '12px' }}
                       variant="contained"
                       color="primary"
                       type='submit'
@@ -101,18 +83,14 @@ const Login = () => {
                   {authError && <AuthErrorMessage authType='login' />}
                 </form>
               </Grid>
-
-              <Grid item xs={8}>
-                <Grid container justifyContent="space-between">
+              <Grid item width="320px">
+                <Grid container justifyContent="space-between" fontSize="14px">
                   <NotRegistered />
                   <ForgotPassword />
                 </Grid>
               </Grid>
-
             </Grid>
-          </Paper>
         </Grid>
-
       </Grid>
       <BackButton />
     </Stack>

@@ -1,6 +1,6 @@
 // MUI
 import { createTheme } from '@mui/material';
-import { lightBlue, orange } from '@mui/material/colors'
+import { orange } from '@mui/material/colors'
 
 export const useTheme = () => {
 
@@ -12,13 +12,22 @@ export const useTheme = () => {
     typography: {
       // fontFamily: '"Permanent Marker", "cursive"',
       fontFamily: '"Roboto", "sans-serif"',
-      fontSize: '20px'
+      fontSize: 14
     },
     components: {
       MuiInputBase: {
         styleOverrides: {
           input: {
-            fontFamily: '"Roboto","Helvetica","Arial",sans-serif;'
+            fontFamily: '"Roboto","Helvetica","Arial",sans-serif;',
+            height: '1em'
+          }
+        }
+      },
+      MuiOutlinedInput: {
+        styleOverrides: {
+          root: {
+            backgroundColor: '#eeeeee',
+            borderRadius: '8px'
           }
         }
       },
@@ -26,6 +35,8 @@ export const useTheme = () => {
         styleOverrides: {
           root: {
             borderRadius: '8px',
+            color: "#eeeeee",
+            fontSize: 16,
             fontWeight: 'bold',
             textTransform: 'capitalize'
           }
@@ -34,7 +45,7 @@ export const useTheme = () => {
       MuiLink: {
         styleOverrides: {
           root: {
-            color: '#555555',
+            color: '#343434',
             fontFamily: '"Permanent Marker", "cursive"',
             textDecoration: 'none'
           }
@@ -50,7 +61,8 @@ export const useTheme = () => {
       MuiPaper: {
         styleOverrides: {
           root: {
-            borderRadius: '12px'
+            borderRadius: '12px',
+            backgroundColor: 'rgb(238, 238, 238, 0.8)'
           }
         }
       },

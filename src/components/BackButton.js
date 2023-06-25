@@ -16,7 +16,7 @@ const BackButton = ({ style }) => {
       sx={style ? 
         style
         :
-        { my: 6 }
+        { my: 3 }
       } 
       to={'/'} 
       onClick={clearError} 

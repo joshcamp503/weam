@@ -15,7 +15,7 @@ const NotRegistered = () => {
       variant="subtitle2"
       component="div"
       gutterBottom
-      sx={{ textAlign: 'left' }}
+      sx={{ color: "#343434", textAlign: 'left' }}
     >
       Not registered yet? 
       <NavLink to={'/signup'} style={{ margin: '5px', textDecoration: 'none' }} onClick={clearError} >
