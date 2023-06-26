@@ -22,11 +22,11 @@ function App() {
   const { user, authIsReady } = useAuthContext()
   const { theme } = useTheme()
   
-  const appStyles = { 
-    height: '100%', 
+  const appStyles = {
     backgroundImage: `url(${MainBgImage})`, 
-    backgroundSize: 'cover', 
-    backgroundPosition: '50% 45%' 
+    backgroundPosition: '50% 45%',
+    backgroundSize: 'cover',
+    height: '100%', 
   }
 
   return (

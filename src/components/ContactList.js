@@ -9,7 +9,7 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
-import TablePagination from '@mui/material/TablePagination';
+// import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 
 const ContactList = ({ action }) => {
@@ -26,15 +26,17 @@ const ContactList = ({ action }) => {
 
   // CONTACT LIST TABLE
   const createColumns = () => {
-    const nameCol = { id: 'name', label: 'Name', minWidth: 170 }
-    const emailCol = { id: 'email', label: 'Email', minWidth: 100, align: 'center', padding: 'none' }
-    const genderCol = { id: 'gender', label: 'Gender', minWidth: 100, align: 'center', padding: 'none' }
+    const nameCol = { id: 'name', label: 'Name' }
+    const emailCol = { id: 'email', label: 'Email', align: 'left', padding: '16px' }
+    // const genderCol = { id: 'gender', label: 'Gender', minWidth: 100, align: 'center', padding: 'none' }
     const inviteCol = { id: 'invite', label: 'Invite?', align: 'center', padding: 'none' }
     const actionCol = { id: 'action', label: 'Action', align: 'center', padding: 'none' }
     if (action === 'invite') {
-      return [nameCol, genderCol, inviteCol]
+      // return [nameCol, genderCol, inviteCol]
+      return [nameCol, inviteCol]
     } else {
-      return [nameCol, emailCol, genderCol, actionCol]
+      // return [nameCol, emailCol, genderCol, actionCol]
+      return [nameCol, emailCol, actionCol]
     }
   }
 
@@ -43,6 +45,10 @@ const ContactList = ({ action }) => {
   // GET USER DATA FROM LOCAL STORAGE AND POPULATE TABLE, SORTED ALPHABETICALLY BY NAME
   const { contacts } = JSON.parse(localStorage.getItem('user'))
   contacts.sort((a, b) => a.name.localeCompare(b.name))
+
+  const colWidth = {
+    width: "40%"
+  }
 
   return (
     <>
@@ -55,6 +61,7 @@ const ContactList = ({ action }) => {
                 <TableCell
                   key={column.id}
                   align={column.align}
+                  sx={{ colWidth }}
                 >
                   {column.label}
                 </TableCell>
@@ -70,7 +77,7 @@ const ContactList = ({ action }) => {
                     {columns.map((column) => {
                       const value = contact[column.id];
                       return (
-                        <TableCell key={column.id} align={column.align} padding={column.padding} sx={{ py: '8px' }} >
+                        <TableCell key={column.id} align={column.align} padding={column.padding} sx={{ ...colWidth, py: '8px', "& .MuiTableCell-root:nth-child(2)": {display: {sm: 'none', md: "block"}} }} >
                           {column.id === 'invite' && 
                             <Field type="checkbox" name="invite" value={contact.email} />
                           }

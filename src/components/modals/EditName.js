@@ -51,11 +51,7 @@ const EditName = () => {
 
   return (
     <div>
-      <IconButton 
-        onClick={handleClickOpen}
-        aria-label="add"
-        size='small'
-      >
+      <IconButton onClick={handleClickOpen} aria-label="change name" size='small' sx={{ p: 0 }}>
         <EditIcon />
       </IconButton>
       <Dialog open={open} onClose={handleClose} fullWidth>

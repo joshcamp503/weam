@@ -70,9 +70,17 @@ export const useTheme = () => {
         styleOverrides: {
           root: {
             fontFamily: '"Roboto","Helvetica","Arial",sans-serif',
-            width: 'min-content'
+            "&:nth-child(2)": {
+              "@media (max-width: 650px)": {
+                display: "none"
+              }
+            }
+          },
+          head: {
+            backgroundColor: "rgb(255, 255, 255, 0.9)",
           },
           body: {
+            backgroundColor: "rgb(255, 255, 255, 0.8)",
             fontSize: '12px'
           }
         }

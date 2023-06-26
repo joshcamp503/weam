@@ -5,7 +5,6 @@ import EditEmail from '../../components/modals/EditEmail'
 import Box from "@mui/material/Box"
 import Grid from "@mui/material/Grid"
 import Paper from "@mui/material/Paper"
-import Stack from "@mui/material/Stack"
 import Typography from "@mui/material/Typography"
 import EditName from '../../components/modals/EditName'
 import FloatingButtons from '../../components/FloatingButtons'
@@ -14,62 +13,54 @@ import FloatingButtons from '../../components/FloatingButtons'
 const Profile = () => {
   const userData = JSON.parse(localStorage.getItem('user'))
 
+  const layoutStyles = {
+    position: "absolute",
+      top: "-450%"
+    // marginTop: "100px",
+    // transform: "translateY(-35%)"
+  }
+
+  const typeStyles = {
+    color: "#444444",
+    fontFamily: "'Permanent Marker', 'cursive'",
+    paddingRight: "12px"
+  }
+
   return (
-    <Stack>
-
-      <Typography 
-        variant='h4' 
-        component='h1' 
-        gutterBottom
-        sx={{
-          m: 6
-        }}
-      >
-        Profile
-      </Typography>
-
-      <Grid 
-        container
-        alignItems='center'
-        justifyContent='center'
-      >
-        <Grid item xs={12} md={10} lg={8}>
-          <Paper elevation={3} sx={{ p: 3, pt: 5 }}>
-            <Grid container justifyContent='center'spacing={2}>
-
-              <Grid item xs={11}>
-                <Box>
-                  <Typography textAlign='left' gutterBottom>
-                    Name
-                  </Typography>
-                  <Box sx={{ textAlign: 'left', m: 3, display: 'flex', alignItems: 'center', justifyContent: 'space-between'}} >
-                    {userData ? `${userData.firstName} ${userData.lastName}` : 'Name goes here'}
+    <>
+    <Grid container justifyContent="center" sx={layoutStyles}>
+      <Grid item xs={12} md={10} lg={8} >
+        <Paper elevation={3} sx={{ p: 3, pt: 5 }}>
+          <Grid container justifyContent='center'>
+            {userData && <Grid item xs={11}>
+                <Box display="flex" justifyContent="space-between" sx={{ flexDirection: { xs: "column", md: "row" } }}>
+                  <Box display="flex" alignItems="start">
+                    <Typography variant="h6" component="h1" sx={typeStyles}>
+                      Hello, {userData.firstName} {userData.lastName}!
+                    </Typography>
                     <EditName />
                   </Box>
-                  <Typography textAlign='left' gutterBottom>
-                    Email
-                  </Typography>
-                  <Box sx={{ textAlign: 'left', m: 3, display: 'flex', alignItems: 'center', justifyContent: 'space-between'}} >
-                    {userData ? userData.email : 'Email goes here'}
+                  <Box display="flex" alignItems="center">
+                    <Typography variant="body1" sx={typeStyles}>
+                      Email: {userData.email}
+                    </Typography>
                     <EditEmail />
                   </Box>
-                  <Typography textAlign='left' gutterBottom>
-                    Contacts
-                  </Typography>
-                  <Box sx={{ textAlign: 'left', m: 3, display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
-                    <ContactList />
-                  </Box>            
                 </Box>
-              </Grid>
-
+                <Typography textAlign="left" marginY="2em" sx={typeStyles}>
+                  Contacts
+                </Typography>
+                <Box >
+                  <ContactList />
+                </Box>            
             </Grid>
-          </Paper>
-        </Grid>
+          }
+          </Grid>
+        </Paper>
       </Grid>
-
-      <FloatingButtons addContact={true} />
-
-    </Stack>
+    </Grid>
+    <FloatingButtons addContact={true} />
+    </>
   )
 }
 export default Profile
