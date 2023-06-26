@@ -6,9 +6,7 @@ import AlreadyRegistered from '../../components/AlreadyRegistered'
 import Button from '@mui/material/Button'
 import Grid from '@mui/material/Grid'
 import Paper from '@mui/material/Paper'
-import Stack from '@mui/material/Stack'
 import TextField from '@mui/material/TextField'
-import Typography from '@mui/material/Typography'
 // HOOKS
 import { useSignup } from '../../hooks/auth/useSignup'
 // FORMS
@@ -56,26 +54,22 @@ const Signup = () => {
     validationSchema
   })
 
+  const layoutStyles = {
+    position: "absolute",
+      top: "50%",
+      left: "50%",
+      transform: "translate(-50%, -40%)",
+    textAlign: "center"
+  }
+
   return (
-    <Stack sx={{ marginTop: '5%'}}>
-
-      <Typography 
-        variant="h4" 
-        color="initial" 
-        component="h2" 
-        gutterBottom
-        sx={{mt: 0, mb: 3}}
-      >
-        SIGN UP
-      </Typography>
-
-      <Grid container alignItems='center' justifyContent='center' >
-
-        <Grid item xs={12} sm={9} md={7} lg={5}>
-          <Paper elevation={3} sx={{ py: 6 }}>
+    // <Grid container xs={11} sm={7} md={5} lg={4} xl={3} sx={layoutStyles}>
+    
+    <Grid container width="320px" sx={layoutStyles}>
+      <Grid item >
+          <Paper elevation={3} sx={{ py: 4, marginBottom: "1em" }}>
             <Grid container alignItems='center' justifyContent='center'>
-
-              <Grid item xs={8}>
+              <Grid item xs={9}>
                 <form noValidate autoComplete='off' onSubmit={formik.handleSubmit}>
                   <TextField
                     label='First Name'
@@ -150,17 +144,16 @@ const Signup = () => {
                 </form>
               </Grid>
 
-              <Grid item xs={7}>
+              <Grid item xs={9}>
                 <AlreadyRegistered />
               </Grid>
 
             </Grid>
           </Paper>
+          <BackButton />
         </Grid>
 
       </Grid>
-      <BackButton />
-    </Stack>
   )
 }
 export default Signup

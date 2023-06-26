@@ -62,7 +62,7 @@ export const useTheme = () => {
         styleOverrides: {
           root: {
             borderRadius: '12px',
-            backgroundColor: 'rgb(238, 238, 238, 0.8)'
+            backgroundColor: 'rgb(238, 238, 238, 0.5)'
           }
         }
       },
