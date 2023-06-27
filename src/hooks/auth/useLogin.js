@@ -6,11 +6,13 @@ import { useProfile } from '../useProfile'
 // FIREBASE IMPORTS
 import { auth } from '../../firebase/config'
 import { signInWithEmailAndPassword } from 'firebase/auth'
+import { useNavigate } from 'react-router-dom'
 
 export const useLogin = () => {
   const { dispatch } = useAuthContext()
   const { initUser } = useProfile()
   const { removePassword } = useHelpers()
+  const navigate = useNavigate()
 
   const login = async (values) => {
     dispatch({ type: 'ERROR', payload: null })
@@ -24,6 +26,7 @@ export const useLogin = () => {
       } else {
         dispatch({ type: 'LOGIN', payload: res.user })
         initUser(profileData)
+        navigate("/profile")
       }
     } catch (err) {
       console.log(err)

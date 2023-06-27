@@ -70,7 +70,7 @@ export const useTheme = () => {
         styleOverrides: {
           root: {
             fontFamily: '"Roboto","Helvetica","Arial",sans-serif',
-            "&:nth-child(2)": {
+            "&:nth-of-type(2)": {
               "@media (max-width: 650px)": {
                 display: "none"
               }

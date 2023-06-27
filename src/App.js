@@ -12,15 +12,18 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useAuthContext } from './hooks/auth/useAuthContext';
 import { useTheme } from './hooks/useTheme';
 // MUI
+import Button from '@mui/material/Button'
 import Grid from '@mui/material/Grid'
 import { ThemeProvider } from '@mui/material';
 // MEDIA
 import MainBgImage from './assets/main-bg-image.png'
 import TagLine from './components/TagLine';
+import { useLogout } from './hooks/auth/useLogout';
 
 function App() {
   const { user, authIsReady } = useAuthContext()
   const { theme } = useTheme()
+  const { logout } = useLogout()
   
   const appStyles = {
     backgroundImage: `url(${MainBgImage})`, 
@@ -29,12 +32,22 @@ function App() {
     height: '100%', 
   }
 
+  const logoutStyles = {
+    color: "#444444",
+    position: "fixed",
+      top: 10,
+      right: 15
+  }
+
   return (
     <Grid className="App" container justifyContent="center" spacing={0} sx={appStyles}>
       <Grid container item xs={12} xl={10} direction="column" position="relative" top="42.5%" height="fit-content">
         <TagLine />
         {authIsReady && (
         <ThemeProvider theme={theme}>
+          {user && 
+            <Button onClick={logout} variant="text" size="small" sx={logoutStyles} >Log Out</Button>
+          }
           <BrowserRouter basename="/weam">
             {/* <FadeMenu />z */}
             <Routes>

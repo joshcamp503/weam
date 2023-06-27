@@ -16,8 +16,6 @@ const Profile = () => {
   const layoutStyles = {
     position: "absolute",
       top: "-450%"
-    // marginTop: "100px",
-    // transform: "translateY(-35%)"
   }
 
   const typeStyles = {
@@ -30,9 +28,9 @@ const Profile = () => {
     <>
     <Grid container justifyContent="center" sx={layoutStyles}>
       <Grid item xs={12} md={10} lg={8} >
-        <Paper elevation={3} sx={{ p: 3, pt: 5 }}>
+        <Paper elevation={3} sx={{ p: 3, pt: 5, mb: "110px" }}>
           <Grid container justifyContent='center'>
-            {userData && <Grid item xs={11}>
+            {userData && <Grid item xs={11} sx={{ height: "auto"}}>
                 <Box display="flex" justifyContent="space-between" sx={{ flexDirection: { xs: "column", md: "row" } }}>
                   <Box display="flex" alignItems="start">
                     <Typography variant="h6" component="h1" sx={typeStyles}>

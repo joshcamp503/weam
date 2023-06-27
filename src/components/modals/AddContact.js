@@ -60,7 +60,7 @@ const AddContact = () => {
           variant="contained" 
           color="primary" 
           onClick={handleClickOpen} 
-          sx={{ px: 6, py: 1.5 }}
+          sx={{ px: 6, py: 1 }}
           >
           Add Contact
         </Button>

@@ -8,7 +8,7 @@ const FloatingButtons = ({ submitRequest, addContact }) => {
   const style = { 
     display: 'flex',
       flexDirection: 'column',
-      gap: 1,
+      gap: 0.5,
     position: 'fixed',
       top: '85%', 
       left: '50%', 
@@ -20,7 +20,7 @@ const FloatingButtons = ({ submitRequest, addContact }) => {
     mx: 'auto',
     my: '10px',
     px: 7,
-    py: 1.5
+    py: 1
   }]
 
   return (
@@ -32,7 +32,7 @@ const FloatingButtons = ({ submitRequest, addContact }) => {
       <Button component={NavLink} to="/sub-request" sx={btn} variant="contained" size="large">Find Subs</Button> 
       }
       {addContact && <AddContact />}
-      <BackButton style={{m: 1, p: 1}} />
+      {submitRequest && <BackButton style={{m: 1, p: 1}} />}
     </Grid>
   )
 }
