@@ -12,6 +12,7 @@ const FloatingButtons = ({ submitRequest, addContact }) => {
     position: 'fixed',
       top: '85%', 
       left: '50%', 
+      zIndex: 2,
     transform: 'translate(-50%, -50%)',
     width: '200px'
   }
@@ -27,7 +28,7 @@ const FloatingButtons = ({ submitRequest, addContact }) => {
     <Grid item sx={style} alignItems="center">
       {submitRequest 
       ?
-      <Button variant="contained" color="primary" type='submit' sx={{ p: 1.5} }>Send Request</Button>
+      <Button variant="contained" color="primary" type='submit' sx={{ px: 6, py: 1} }>Send Request</Button>
       :
       <Button component={NavLink} to="/sub-request" sx={btn} variant="contained" size="large">Find Subs</Button> 
       }

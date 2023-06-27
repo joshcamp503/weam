@@ -22,6 +22,12 @@ const SubRequestForm = () => {
   const { createSubRequest } = useSubRequest()
   const [modalOpen, setModalOpen] = useState(false)
 
+  const typeStyles = {
+    color: "#444444",
+    fontFamily: "'Permanent Marker', 'cursive'",
+    paddingRight: "12px"
+  }
+
   return (
     <Formik
       initialValues = {{
@@ -49,20 +55,27 @@ const SubRequestForm = () => {
         location: yup
           .string("Enter event location")
           .required("Location is required"),
-        males: yup
+        players: yup
           .number()
-          .required("Number of male players is required")
+          .required("Number of players is required")
           .positive()
           .integer()
           .min(0, "Must be a positive number")
           .max (20, "Number cannot be greater than 20"),
-        females: yup
-          .number()
-          .required("Number of female players is required")
-          .positive()
-          .integer()
-          .min(0, "Must be a positive number")
-          .max(20, "Number cannot be greater than 20"),
+        // males: yup
+        //   .number()
+        //   .required("Number of male players is required")
+        //   .positive()
+        //   .integer()
+        //   .min(0, "Must be a positive number")
+        //   .max (20, "Number cannot be greater than 20"),
+        // females: yup
+        //   .number()
+        //   .required("Number of female players is required")
+        //   .positive()
+        //   .integer()
+        //   .min(0, "Must be a positive number")
+        //   .max(20, "Number cannot be greater than 20"),
       })}
       onSubmit = {async (values, actions) => {
         // const formattedValues = formatData(values)
@@ -74,37 +87,34 @@ const SubRequestForm = () => {
       }}
     >
       <Form>
-          <Stack spacing={1}>
-            <Stack spacing={1} justifyContent="center" sx={{ mx: 'auto', width: 'clamp(280px, 100%, 400px)'}}>
+          <Stack spacing={1} >
+            <Stack spacing={1} justifyContent="center" sx={{ width: '100%', mb: 4 }}>
+              <Typography sx={typeStyles}>
+                Invite players:
+              </Typography>
               <MyTextInput label="For What?" name="event" id="event" variant="outlined" />
               <MyTextInput label="Where?" name="location" id="location" variant="outlined" />
               <MyDatePicker label="Which day?" name="date" id="date" />
               <MyTimePicker label="What time?" name="time" id="time" />
               <Box>
-                <Grid container spacing={1}>
-                  <Grid item xs>
+                <Grid container xs={6} spacing={1}>
+                  <Grid item xs >
+                    <MyNumSelector label="Players" name="players" id="players" />
+                  </Grid>
+                  {/* <Grid item xs>
                     <MyNumSelector label="Male players" name="males" id="males" />
                   </Grid>
                   <Grid item xs>
                     <MyNumSelector label="Female players" name="females" id="females" />
-                  </Grid>
+                  </Grid> */}
                 </Grid>
               </Box>
             </Stack>
-            <Typography 
-              variant="h6" 
-              color="initial" 
-              component="h6" 
-              gutterBottom
-              sx={{
-                alignSelf: 'flex-start'
-              }}
-            >
+            <Typography sx={typeStyles}>
               Contacts:
             </Typography>
             <ContactList id="invite" action={"invite"} />
-            <FloatingButtons submitRequest={true}/>
-            
+            <FloatingButtons submitRequest={true} />
           </Stack>
           <SuccessModal open={modalOpen} setOpen={setModalOpen} />
         </Form>

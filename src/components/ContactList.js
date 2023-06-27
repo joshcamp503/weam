@@ -9,20 +9,9 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
-// import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 
 const ContactList = ({ action }) => {
-  // PAGINATION
-  // const [page, setPage] = React.useState(0);
-  // const [rowsPerPage, setRowsPerPage] = React.useState(5);
-  // const handleChangePage = (event, newPage) => {
-  //   setPage(newPage);
-  // };
-  // const handleChangeRowsPerPage = (event) => {
-  //   setRowsPerPage(parseInt(event.target.value, 10));
-  //   setPage(0);
-  // };
 
   // CONTACT LIST TABLE
   const createColumns = () => {
@@ -50,9 +39,11 @@ const ContactList = ({ action }) => {
     width: "40%"
   }
 
+
+
   return (
     <>
-    <Paper sx={{ width: '100%', overflow: 'hidden', mb: "85px" }}>
+    <Paper sx={{ overflow: 'hidden', mb: "85px" }}>
       <TableContainer >
         <Table stickyHeader aria-label="sticky table">
           <TableHead >
@@ -70,7 +61,6 @@ const ContactList = ({ action }) => {
           </TableHead>
           <TableBody>
             {contacts
-              // .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((contact) => {
                 return (
                   <TableRow hover role="checkbox" tabIndex={-1} key={contact.name} >
@@ -95,15 +85,6 @@ const ContactList = ({ action }) => {
           </TableBody>
         </Table>
       </TableContainer>
-      {/* <TablePagination
-          rowsPerPageOptions={[5, 10, 25]}
-          component="div"
-          count={contacts.length}
-          rowsPerPage={rowsPerPage}
-          page={page}
-          onPageChange={handleChangePage}
-          onRowsPerPageChange={handleChangeRowsPerPage}
-        /> */}
     </Paper>
 
     
