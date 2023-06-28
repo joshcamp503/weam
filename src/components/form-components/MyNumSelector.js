@@ -13,6 +13,7 @@ const MyTextInput = ({ label, ...props }) => {
         id={props.id}
         variant='outlined'
         select={true}
+        defaultValue={""}
         required
         fullWidth
         {...field}
@@ -21,7 +22,7 @@ const MyTextInput = ({ label, ...props }) => {
         helperText={meta.touched && meta.error}
       >
         {numOptions.map(num => {
-          return <MenuItem key={`num${num}`} value={num}>{num}</MenuItem>
+          return <MenuItem key={`num${num}`} value={num} >{num}</MenuItem>
         })}
       </TextField>
   )

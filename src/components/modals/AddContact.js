@@ -34,7 +34,7 @@ const AddContact = () => {
       initialValues = {{
         name: "",
         email: "",
-        gender: null
+        // gender: null
       }}
       validationSchema = {yup.object({
         name: yup
@@ -44,13 +44,13 @@ const AddContact = () => {
           .string("Enter contact's phone number")
           .email("Enter a valid email")
           .required("Phone number is required"),
-        gender: yup
-          .string("Select contact gender")
-          .required("Gender is required")
+        // gender: yup
+        //   .string("Select contact gender")
+        //   .required("Gender is required")
       })}
       onSubmit = {(values, actions) => {
         addContact(userData.id, values)
-        // console.log(values)
+        console.log(values)
         actions.resetForm()
         setOpen(false)
       }}
@@ -73,8 +73,8 @@ const AddContact = () => {
               {/* <MyRadioGroup id="gender" name="gender"/> */}
             </DialogContent>
             <DialogActions sx={{ m: 2 }}>
-              <Button onClick={handleClose} sx={{ color: "#444444" }} >Cancel</Button>
-              <Button type='submit' sx={{ color: "#444444" }} >Submit</Button>
+              <Button onClick={handleClose} >Cancel</Button>
+              <Button type='submit' >Submit</Button>
             </DialogActions>
           </Form>
         </Dialog>

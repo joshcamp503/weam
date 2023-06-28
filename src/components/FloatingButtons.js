@@ -10,7 +10,7 @@ const FloatingButtons = ({ submitRequest, addContact }) => {
       flexDirection: 'column',
       gap: 0.5,
     position: 'fixed',
-      top: '85%', 
+      top: '87.5%', 
       left: '50%', 
       zIndex: 2,
     transform: 'translate(-50%, -50%)',

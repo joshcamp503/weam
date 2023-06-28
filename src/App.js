@@ -45,14 +45,14 @@ function App() {
         <TagLine />
         {authIsReady && (
         <ThemeProvider theme={theme}>
-          {user && 
-            <Button onClick={logout} variant="text" size="small" sx={logoutStyles} >Log Out</Button>
-          }
           <BrowserRouter basename="/weam">
+            {user && 
+              <Button onClick={logout} variant="text" size="small" sx={logoutStyles} >Log Out</Button>
+            }
             {/* <FadeMenu />z */}
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/sub-request" element={<SubRequest />} />
+              <Route path="/sub-request" element={user ? <SubRequest /> : <Navigate to="/" /> } />
               <Route path="/signup" element={user ? <Navigate to="/" /> : <Signup />} />
               <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
               <Route path="/profile" element={user ? <Profile /> : <Navigate to="/" />} />

@@ -36,8 +36,9 @@ const SubRequestForm = () => {
         date: "",
         time: "",
         location: "",
-        males: "",
-        females: "",
+        players: "",
+        // males: "",
+        // females: "",
         invite: []
       }}
       validationSchema = {yup.object({
@@ -97,8 +98,8 @@ const SubRequestForm = () => {
               <MyDatePicker label="Which day?" name="date" id="date" />
               <MyTimePicker label="What time?" name="time" id="time" />
               <Box>
-                <Grid container xs={6} spacing={1}>
-                  <Grid item xs >
+                <Grid container spacing={1}>
+                  <Grid item xs={6} >
                     <MyNumSelector label="Players" name="players" id="players" />
                   </Grid>
                   {/* <Grid item xs>
