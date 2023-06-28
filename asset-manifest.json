@@ -1,14 +1,15 @@
 {
   "files": {
-    "main.css": "/weam/static/css/main.bce51355.css",
-    "main.js": "/weam/static/js/main.2def4f77.js",
+    "main.css": "/weam/static/css/main.350ee4ad.css",
+    "main.js": "/weam/static/js/main.776f89bc.js",
     "service-worker.js": "/weam/service-worker.js",
+    "static/media/main-bg-image.png": "/weam/static/media/main-bg-image.b05fbff0bc1b7f4995a6.png",
     "index.html": "/weam/index.html",
-    "main.bce51355.css.map": "/weam/static/css/main.bce51355.css.map",
-    "main.2def4f77.js.map": "/weam/static/js/main.2def4f77.js.map"
+    "main.350ee4ad.css.map": "/weam/static/css/main.350ee4ad.css.map",
+    "main.776f89bc.js.map": "/weam/static/js/main.776f89bc.js.map"
   },
   "entrypoints": [
-    "static/css/main.bce51355.css",
-    "static/js/main.2def4f77.js"
+    "static/css/main.350ee4ad.css",
+    "static/js/main.776f89bc.js"
   ]
 }
