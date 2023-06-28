@@ -14,26 +14,11 @@ Google Cloud > APIs & Services > Credentials > API Keys (Browser key)
 
 
 To-do:
-  {Invite email: change user ID to username}
-  {Invite email: add event info to email}
-  Create RSVP link landing page
-    useParams, grab id, fetch subRequest Doc
-  Invite email: link RSVP button to landing page
-  RSVP landing page:
-    Display event info
-    If you would like to accept this invitation, please enter your name and email below and click "Send RSVP"
-    Upon success, "Thank you! You will receive a confirmation email once (Invitor) has accepted your RSVP."
-    Back to Home button
     
   Invitor email:
-    Display event info
-    Display attendee info
-    "Accept RSVP" button
-      reduces "players" number in subRequest in database
-      sends confirmation email to attendee
+    Success modal after accepting RSVP
+    Send confirmation email to attendee
   Firebase:
-    "Accept RSVP" button reduces "players" number in subRequest datum
-      -should only work once per instance
     If "players" === 0, RSVP landing page should say, "Sorry this invitation has been closed"
 
 

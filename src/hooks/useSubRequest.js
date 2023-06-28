@@ -4,8 +4,7 @@ import { useHelpers } from './useHelpers'
 import { firestore } from '../firebase/config'
 import { 
   collection, doc, setDoc, 
-  query, where, getDocs, 
-  updateDoc, arrayUnion
+  query, where, getDocs, updateDoc
 } from 'firebase/firestore'
 
 export const useSubRequest = () => {
@@ -16,7 +15,6 @@ export const useSubRequest = () => {
     values.ts = Date.now()
     const formattedValues = formatValues(values)
     const docRef = doc(collection(firestore, 'subRequests'))
-    // console.log(formattedValues)
     try {
       await setDoc(docRef, { ...formattedValues, id: docRef.id} )
     }
@@ -29,7 +27,6 @@ export const useSubRequest = () => {
     const q = query(collection(firestore, 'subRequests'), where('id', "==", paramsId))
     const querySnapshot = await getDocs(q)
     const [ subRequest ] = querySnapshot.docs
-    console.log(subRequest)
     return subRequest
   }
 
@@ -37,10 +34,16 @@ export const useSubRequest = () => {
     formValues.pending = true
     const subRequestDoc = doc(firestore, "subRequests", subRequestId)
     await updateDoc(subRequestDoc, {
-      RSVP: arrayUnion(formValues)
+      rsvp: formValues
     })
-    console.log(subRequestDoc, formValues)
   }
 
-  return { createSubRequest, fetchSubRequest, submitRSVP }
+  const confirmRSVP = async (subRequestId, rsvpInfo) => {
+    const subRequestDoc = doc(firestore, "subRequests", subRequestId)
+    await updateDoc(subRequestDoc, {
+      rsvp: { ...rsvpInfo, pending: false},
+    })
+  }
+
+  return { createSubRequest, fetchSubRequest, submitRSVP, confirmRSVP }
 }

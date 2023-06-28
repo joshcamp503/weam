@@ -86,6 +86,7 @@ const SubRequestForm = () => {
         // formattedValues.creator = userData.id
         values.creatorId = userData.id
         values.creatorName = `${userData.firstName} ${userData.lastName}`
+        values.creatorEmail = userData.email
         await createSubRequest(values)
         setModalOpen(true)
         actions.resetForm()

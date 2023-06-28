@@ -16,13 +16,15 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const source = fs.readFileSync("./invite.html", "utf-8");
-const template = Handlebars.compile(source);
+const inviteSource = fs.readFileSync("./invite.html", "utf-8");
+const inviteTemplate = Handlebars.compile(inviteSource);
+const rsvpSource = fs.readFileSync("./rsvp.html", "utf-8");
+const rsvpTemplate = Handlebars.compile(rsvpSource);
 
 exports.sendSubRequest = functions.firestore.document("/subRequests/{id}")
     .onCreate((snap, context) => {
       console.log(snap.data());
-      console.log(source);
+      console.log(inviteSource);
 
       const inviteList = snap.data().invite;
       const eventInfo = {
@@ -40,7 +42,7 @@ exports.sendSubRequest = functions.firestore.document("/subRequests/{id}")
             from: "Weam <joshcampdev@gmail.com>",
             to: contact,
             subject: "You've been invited to a game!",
-            html: template(locals),
+            html: inviteTemplate(locals),
           };
           // returning result
           return transporter.sendMail(mailOptions, (error, info, response) => {
@@ -54,3 +56,41 @@ exports.sendSubRequest = functions.firestore.document("/subRequests/{id}")
 
       sendEmail(inviteList, eventInfo);
     });
+
+
+exports.sendRSVPRequest = functions.firestore.document("/subRequests/{id}")
+    .onUpdate((snap, context) => {
+      if (snap.after.data().rsvp.pending) {
+        const rsvpInfo = {
+          id: snap.after.data().id,
+          creatorEmail: snap.after.data().creatorEmail,
+          name: snap.after.data().creatorName,
+          event: snap.after.data().event,
+          location: snap.after.data().location,
+          date: snap.after.data().date,
+          time: snap.after.data().time,
+          rsvpName: snap.after.data().rsvp.rsvpName,
+          rsvpEmail: snap.after.data().rsvp.rsvpName,
+        };
+        const sendEmail = (contact, locals) => {
+          const mailOptions = {
+            from: "Weam <joshcampdev@gmail.com>",
+            to: contact,
+            subject: "You've received an RSVP!",
+            html: rsvpTemplate(locals),
+          };
+          // returning result
+          return transporter.sendMail(mailOptions, (error, info, response) => {
+            if (error) {
+              return response.send(error.toString());
+            }
+            return response.send("Sent");
+          });
+        };
+        sendEmail(rsvpInfo.creatorEmail, rsvpInfo);
+      } else {
+        return false;
+      }
+    });
+
+
