@@ -5,6 +5,7 @@ import Home from './pages/Home/Home';
 import Signup from './pages/Signup/Signup';
 import Login from './pages/Login/Login';
 import SubRequest from './pages/SubRequest/SubRequest';
+import RSVP from './pages/RSVP/RSVP';
 // import FadeMenu from './components/FadeMenu';
 import Profile from './pages/Profile/Profile';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
@@ -56,6 +57,7 @@ function App() {
               <Route path="/signup" element={user ? <Navigate to="/" /> : <Signup />} />
               <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
               <Route path="/profile" element={user ? <Profile /> : <Navigate to="/" />} />
+              <Route path="/rsvp/:id" element={<RSVP />} />
             </Routes>
           </BrowserRouter>
         </ThemeProvider>

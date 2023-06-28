@@ -8,7 +8,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import Typography from '@mui/material/Typography';
 
-const SuccessModal = ({ open, setOpen }) => {
+const SuccessModal = ({ open, setOpen, text }) => {
   const navigate = useNavigate()
 
   const handleClose = () => {
@@ -26,7 +26,7 @@ const SuccessModal = ({ open, setOpen }) => {
               component='p'
               sx={{ fontSize: "14px", marginTop: "1em"}}
             >
-              Your request has been sent.
+              Your {text} has been sent.
             </Typography>
           </DialogContent>
           <DialogActions>

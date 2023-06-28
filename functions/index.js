@@ -25,6 +25,14 @@ exports.sendSubRequest = functions.firestore.document("/subRequests/{id}")
       console.log(source);
 
       const inviteList = snap.data().invite;
+      const eventInfo = {
+        id: snap.data().id,
+        name: snap.data().creatorName,
+        event: snap.data().event,
+        location: snap.data().location,
+        date: snap.data().date,
+        time: snap.data().time,
+      };
 
       const sendEmail = (contacts, locals) => {
         contacts.forEach((contact) => {
@@ -44,5 +52,5 @@ exports.sendSubRequest = functions.firestore.document("/subRequests/{id}")
         });
       };
 
-      sendEmail(inviteList, {name: snap.data().creator});
+      sendEmail(inviteList, eventInfo);
     });

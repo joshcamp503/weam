@@ -31,10 +31,13 @@ const SubRequestForm = () => {
   return (
     <Formik
       initialValues = {{
-        creator: null,
+        creatorId: null,
+        creatorName: "",
         event: "",
         date: "",
+        localeDate: "",
         time: "",
+        localeTime: "",
         location: "",
         players: "",
         // males: "",
@@ -81,7 +84,8 @@ const SubRequestForm = () => {
       onSubmit = {async (values, actions) => {
         // const formattedValues = formatData(values)
         // formattedValues.creator = userData.id
-        values.creator = userData.id
+        values.creatorId = userData.id
+        values.creatorName = `${userData.firstName} ${userData.lastName}`
         await createSubRequest(values)
         setModalOpen(true)
         actions.resetForm()
@@ -117,7 +121,7 @@ const SubRequestForm = () => {
             <ContactList id="invite" action={"invite"} />
             <FloatingButtons submitRequest={true} />
           </Stack>
-          <SuccessModal open={modalOpen} setOpen={setModalOpen} />
+          <SuccessModal open={modalOpen} setOpen={setModalOpen} text={"request"}/>
         </Form>
     </Formik>
   )
