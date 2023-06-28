@@ -56,8 +56,8 @@ const EditName = () => {
       </IconButton>
       <Dialog open={open} onClose={handleClose} fullWidth>
         <form noValidate autoComplete='off' onSubmit={formik.handleSubmit}>
-          <DialogTitle sx={{ m: 2 }}>Change your name</DialogTitle>
-          <DialogContent sx={{ px: 12  }}>
+          <DialogTitle >Change your name</DialogTitle>
+          <DialogContent >
             <TextField
               label="First Name"
               id="firstName"
@@ -70,7 +70,7 @@ const EditName = () => {
               helperText={formik.touched.firstName && formik.errors.firstName}
             />
             <TextField
-              label="last Name"
+              label="Last Name"
               id="lastName"
               variant="standard"
               required
@@ -82,8 +82,8 @@ const EditName = () => {
             />
           </DialogContent>
           <DialogActions sx={{ m: 2 }}>
-            <Button onClick={handleClose}>Cancel</Button>
-            <Button type='submit' >Save</Button>
+            <Button onClick={handleClose} sx={{ color: "#444444" }} >Cancel</Button>
+            <Button type='submit' sx={{ color: "#444444" }} >Submit</Button>
           </DialogActions>
         </form>
       </Dialog>

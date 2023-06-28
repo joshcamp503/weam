@@ -72,7 +72,7 @@ const Login = () => {
                       helperText={formik.touched.password && formik.errors.password}
                     />
                     <Button 
-                      sx={{ my: '12px' }}
+                      sx={{ color: "#eeeeee", my: '12px' }}
                       variant="contained"
                       color="primary"
                       type='submit'

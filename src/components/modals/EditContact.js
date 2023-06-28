@@ -62,15 +62,15 @@ const EditContact = ({ contact }) => {
       </IconButton>
       <Dialog open={open} onClose={handleClose} fullWidth>
         <form noValidate autoComplete='off' onSubmit={formik.handleSubmit}>
-          <DialogTitle sx={{ m: 2 }}>Edit contact</DialogTitle>
-          <DialogContent sx={{ px: 12  }}>
+          <DialogTitle >Edit contact</DialogTitle>
+          <DialogContent >
             <TextField
               label="Name"
               id="name"
               variant="standard"
               required
               fullWidth
-              sx={{ my: 2 }}
+              sx={{ my: 1 }}
               {...formik.getFieldProps('name')}
               error={formik.touched.name && Boolean(formik.errors.name)}
               helperText={formik.touched.name && formik.errors.name}
@@ -81,15 +81,15 @@ const EditContact = ({ contact }) => {
               variant="standard"
               required
               fullWidth
-              sx={{ my: 2 }}
+              sx={{ mb: 1 }}
               {...formik.getFieldProps('email')}
               error={formik.touched.email && Boolean(formik.errors.email)}
               helperText={formik.touched.email && formik.errors.email}
             />
           </DialogContent>
           <DialogActions sx={{ m: 2 }}>
-            <Button onClick={handleClose}>Cancel</Button>
-            <Button type='submit' >Save</Button>
+            <Button onClick={handleClose} sx={{ color: "#444444" }} >Cancel</Button>
+            <Button type='submit' sx={{ color: "#444444" }} >Submit</Button>
           </DialogActions>
         </form>
       </Dialog>

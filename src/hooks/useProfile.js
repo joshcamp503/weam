@@ -1,7 +1,7 @@
 // AUTH & FIREBASE
 import { useAuthContext } from './auth/useAuthContext'
 import { auth, firestore } from '../firebase/config'
-import { updateEmail } from 'firebase/auth'
+import { updateEmail, sendEmailVerification } from 'firebase/auth'
 import { 
   getDocs, query, where, 
   collection,doc, setDoc, getDoc, updateDoc,
@@ -75,6 +75,7 @@ export const useProfile = () => {
       if (value.email) { 
         updateEmail(auth.currentUser, value.email).then(() => {
           console.log(auth.currentUser)
+          sendEmailVerification(auth.currentUser)
         })
         updateDoc(userDoc, {
             email: value.email

@@ -13,6 +13,11 @@ Google Cloud > APIs & Services > Credentials > API Keys (Browser key)
   *For PROD, restrict to "Websites", add https://joshcamp.dev AND add https://weam-a7b1a.firebaseapp.com, otherwise email verification wont work
 
 
+To-do:
+
+  
+
+
 **PhoneRegExp
 const phoneRegExp = /^\(?[0-9]{3}\)?\s?-?\.?\s?[0-9]{3}\s?-?\.?\s?[0-9]{4}$/g
 

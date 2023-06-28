@@ -10,7 +10,7 @@ import { Formik, Form } from 'formik'
 import * as yup from 'yup'
 // HOOKS
 import { useProfile } from '../../hooks/useProfile'
-import MyRadioGroup from '../form-components/MyRadioGroup';
+// import MyRadioGroup from '../form-components/MyRadioGroup';
 
 
 const AddContact = () => {
@@ -60,21 +60,21 @@ const AddContact = () => {
           variant="contained" 
           color="primary" 
           onClick={handleClickOpen} 
-          sx={{ px: 6, py: 1 }}
+          sx={{ color: "#eeeeee", px: 6, py: 1 }}
           >
           Add Contact
         </Button>
         <Dialog open={open} onClose={handleClose} fullWidth>
           <Form >
-            <DialogTitle sx={{ m: 2 }}>Add new contact</DialogTitle>
-            <DialogContent sx={{ paddingBottom: '0' }}>
-              <MyTextInput label="Contact name" name="name" id="name" variant="standard" sx={{ my: 2 }} />
-              <MyTextInput label="Email" name="email" id="email" variant="standard" sx={{ my: 2 }} />
-              <MyRadioGroup id="gender" name="gender"/>
+            <DialogTitle >Add new contact</DialogTitle>
+            <DialogContent >
+              <MyTextInput label="Name" name="name" id="name" variant="standard" sx={{my: 1}}/>
+              <MyTextInput label="Email" name="email" id="email" variant="standard" sx={{mb: 1}} />
+              {/* <MyRadioGroup id="gender" name="gender"/> */}
             </DialogContent>
             <DialogActions sx={{ m: 2 }}>
-              <Button onClick={handleClose}>Cancel</Button>
-              <Button type='submit' >Save</Button>
+              <Button onClick={handleClose} sx={{ color: "#444444" }} >Cancel</Button>
+              <Button type='submit' sx={{ color: "#444444" }} >Submit</Button>
             </DialogActions>
           </Form>
         </Dialog>

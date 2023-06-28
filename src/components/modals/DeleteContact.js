@@ -42,8 +42,8 @@ const DeleteContact = ({ contact }) => {
         <DeleteIcon />
       </IconButton>
       <Dialog open={open} onClose={handleClose} fullWidth>
-          <DialogTitle sx={{ m: 2 }}>Delete contact</DialogTitle>
-          <DialogContent sx={{ px: 12  }}>
+          <DialogTitle >Delete contact</DialogTitle>
+          <DialogContent sx={{mt: 3}}>
             <Typography
               variant='p'
               component='p'
@@ -52,8 +52,8 @@ const DeleteContact = ({ contact }) => {
             </Typography>
           </DialogContent>
           <DialogActions sx={{ m: 2 }}>
-            <Button onClick={handleClose}>Cancel</Button>
-            <Button onClick={handleDelete}>Confirm</Button>
+            <Button onClick={handleClose} sx={{ color: "#444444" }} >Cancel</Button>
+            <Button onClick={handleDelete} sx={{ color: "#444444" }} >Confirm</Button>
           </DialogActions>
       </Dialog>
     </div>

@@ -35,10 +35,43 @@ export const useTheme = () => {
         styleOverrides: {
           root: {
             borderRadius: '8px',
-            color: "#eeeeee",
+            color: "#444444",
             fontSize: 16,
             fontWeight: 'bold',
             textTransform: 'capitalize'
+          }
+        }
+      },
+      MuiDialog: {
+        styleOverrides: {
+          paper: {
+            borderRadius: '12px',
+            backgroundColor: 'rgb(238, 238, 238, 0.9)'
+          }
+        }
+      },
+      MuiDialogContent: {
+        styleOverrides: {
+          root: {
+            padding: "0 2em",
+            "@media screen and (min-width: 600px)": {
+              padding: "0 4em"
+            },
+            "@media screen and (min-width: 1200px)": {
+              padding: "0 6em"
+            }
+          }
+        }
+      },
+      MuiDialogTitle: {
+        styleOverrides: {
+          root: {
+            fontFamily: "'Permanent Marker', 'cursive'",
+            padding: "1em 1em 0 1em",
+            "@media screen and (min-width: 600px)": {
+              padding: "2em 2em 0 2em"
+            },
+
           }
         }
       },
@@ -63,6 +96,14 @@ export const useTheme = () => {
           root: {
             borderRadius: '12px',
             backgroundColor: 'rgb(238, 238, 238, 0.5)'
+          }
+        }
+      },
+      MuiPopover: {
+        styleOverrides: {
+          paper: {
+            borderRadius: '12px',
+            backgroundColor: 'rgb(238, 238, 238, 0.9)'
           }
         }
       },

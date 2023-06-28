@@ -18,7 +18,7 @@ const ContactList = ({ action }) => {
     const nameCol = { id: 'name', label: 'Name' }
     const emailCol = { id: 'email', label: 'Email', align: 'left', padding: 'none'}
     // const genderCol = { id: 'gender', label: 'Gender', minWidth: 100, align: 'center', padding: 'none' }
-    const inviteCol = { id: 'invite', label: 'Invite?', align: 'center', padding: 'none' }
+    const inviteCol = { id: 'invite', label: 'Invite?', align: 'right', padding: 'none' }
     const actionCol = { id: 'action', label: 'Action', align: 'center', padding: 'none' }
     if (action === 'invite') {
       // return [nameCol, genderCol, inviteCol]
@@ -69,7 +69,7 @@ const ContactList = ({ action }) => {
                       return (
                         <TableCell key={column.id} align={column.align} padding={column.padding} sx={{ ...colWidth, py: '8px', px: '16px', "& .MuiTableCell-root:nth-of-type(2)": {display: {sm: 'none', md: "block"}} }} >
                           {column.id === 'invite' && 
-                            <Field type="checkbox" name="invite" value={contact.email} />
+                            <Field type="checkbox" name="invite" value={contact.email} style={{ marginRight: "15px"}} />
                           }
                           {column.id === 'action' ? 
                             <ProfileActions contact={contact}/>

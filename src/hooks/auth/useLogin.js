@@ -5,7 +5,7 @@ import { useAuthContext } from './useAuthContext'
 import { useProfile } from '../useProfile'
 // FIREBASE IMPORTS
 import { auth } from '../../firebase/config'
-import { signInWithEmailAndPassword } from 'firebase/auth'
+import { sendEmailVerification, signInWithEmailAndPassword } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
 
 export const useLogin = () => {
@@ -21,7 +21,9 @@ export const useLogin = () => {
     try {
       const res = await signInWithEmailAndPassword(auth, email, password)
       console.log(res)
+      console.log(auth.currentUser)
       if (!res.user.emailVerified) {
+        sendEmailVerification(auth.currentUser)
         throw new Error("new user verification")
       } else {
         dispatch({ type: 'LOGIN', payload: res.user })

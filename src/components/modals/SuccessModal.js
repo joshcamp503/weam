@@ -19,17 +19,18 @@ const SuccessModal = ({ open, setOpen }) => {
   return (
     <div>
       <Dialog open={open} onClose={handleClose} fullWidth >
-          <DialogTitle sx={{ fontSize: '3em', textAlign: 'center' }}>Success!</DialogTitle>
+          <DialogTitle sx={{ fontSize: '2em', textAlign: 'center' }}>Success!</DialogTitle>
           <DialogContent sx={{ textAlign: 'center' }}>
             <Typography
               variant='p'
               component='p'
+              sx={{ fontSize: "14px", marginTop: "1em"}}
             >
               Your request has been sent.
             </Typography>
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleClose}>Ok</Button>
+            <Button onClick={handleClose} sx={{ color: "#444444" }}>Ok</Button>
           </DialogActions>
       </Dialog>
     </div>
